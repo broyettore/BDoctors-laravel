@@ -2,11 +2,12 @@
 
 @section('content')
     <div class="container">
+        <h1 class="mb-3">Users Profiles</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -19,7 +20,7 @@
                         <td>{{$user->email}}</td>
                         
                         <td>
-                            <a href="{{route('admin.user.show', $user->id)}}" class="btn btn-primary">Vai al Profilo</a>
+                            <a href="{{route('admin.user.show', $user->id)}}" class="see-profile">--> See Profile <--</a>
                         </td>
                         
                     </tr>

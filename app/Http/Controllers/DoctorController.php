@@ -13,7 +13,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.doctor.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.doctor.create');
     }
 
     /**
@@ -29,7 +29,7 @@ class DoctorController extends Controller
      */
     public function store(StoreDoctorRequest $request)
     {
-        //
+        return to_route('admin.doctor.show');
     }
 
     /**
@@ -37,7 +37,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view('admin.doctor.show');
     }
 
     /**
@@ -45,7 +45,7 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        //
+    return view('admin.doctor.edit');
     }
 
     /**
@@ -53,7 +53,7 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
-        //
+        return to_route('admin.doctor.show', $doctor->id);
     }
 
     /**
@@ -61,6 +61,6 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        //
+        return to_route('admin.dashboard');
     }
 }

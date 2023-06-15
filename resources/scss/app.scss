@@ -6,3 +6,47 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+body, nav, .ms-drop {
+    background-color: $body-bg;
+}
+
+
+
+
+
+
+
+/********** COMMON **************/
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul, li, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.ms-btn-primary {
+    background-color: #98EECC;
+
+    &:hover {
+        background-color: #00DFA2;
+        transform: scale(1.1);
+        transition: ease-in-out .30s;
+    }
+}
+
+.see-profile {
+    color: #000;
+
+    &:hover {
+        color: #00DFA2;
+        transition: ease .40s;
+    }
+}
