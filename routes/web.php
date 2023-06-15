@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoctorController;
@@ -24,6 +25,7 @@ Route::get('/', function () {
 Route::middleware('auth')->name("admin.")->prefix("admin")->group(function () {
     Route::get("/", [DashboardController::class, "index"])->name("dashboard");
     Route::resource("doctor", DoctorController::class);
+    Route::resource("user", UserController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
