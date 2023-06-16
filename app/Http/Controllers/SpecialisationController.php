@@ -33,13 +33,13 @@ class SpecialisationController extends Controller
         $data = $request->validated();
         //salvo dati in arrivo dal form
         $data = $request->all();
-
+        
         $new_specialisation = new Specialisation();
 
         $new_specialisation->fill($data);
 
         $new_specialisation->save();
-
+        session()->flash('success', 'Creazione avvenuta con successo.');
         return to_route('admin.specialisation.index');
     }
 

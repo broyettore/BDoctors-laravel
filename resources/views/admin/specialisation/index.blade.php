@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <h1 class="mb-3">Specialisations</h1>
         <div>
             <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Create</a>
