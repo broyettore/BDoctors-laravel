@@ -50,3 +50,15 @@ ul, li, h1, h2, h3, h4, h5, h6 {
         transition: ease .40s;
     }
 }
+
+.photo-ctn {
+    height: 300px;
+    width: 300px;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 20% 20%;
+    }
+}
