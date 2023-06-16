@@ -40,13 +40,14 @@
             </div>
 
    
-            <div class="form-check form-check-inline p-0 mb-3">
-                @foreach ($specialisations as $specialisation)
-                    <input type="checkbox" class="btn-check" value="{{$specialisation->id}}" name="specialisations[]" {{in_array($specialisation->id, old('specialisations', [])) ? 'checked' : ''}} id="specialisations" autocomplete="off">
-                    <label class="btn btn-outline-primary mb-2 me-2" for="specialisations">{{ $specialisation->name }}</label>             
-                @endforeach
-            </div>
-
+            @foreach ($specialisations as $specialisation)
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="specialisations" value="{{ $specialisation->id }}"
+                        name="specialisations[]"
+                        {{ in_array($specialisation->id, old('specialisations', [])) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="specialisations">{{ $specialisation->name }}</label>
+                </div>
+            @endforeach
 
             <div class="mb-3">
                 <input type="submit" value="Save" class="btn ms-btn-primary">
