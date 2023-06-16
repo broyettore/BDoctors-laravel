@@ -11,4 +11,9 @@ class Specialisation extends Model
 
     protected $fillable = ['name', 'description'];
 
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class, 'doctor_specialisation');
+    }
+
 }
