@@ -11,7 +11,7 @@ class StoreSpecialisationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreSpecialisationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:30',
+            'description' => 'required|string|max:1000'
         ];
     }
 }

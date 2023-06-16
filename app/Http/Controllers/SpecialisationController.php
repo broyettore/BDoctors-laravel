@@ -13,7 +13,8 @@ class SpecialisationController extends Controller
      */
     public function index()
     {
-        //
+        $specialisations = Specialisation::all();
+        return view('admin.specialisation.index', compact('specialisations'));
     }
 
     /**
@@ -21,7 +22,7 @@ class SpecialisationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.specialisation.create');
     }
 
     /**
@@ -29,7 +30,17 @@ class SpecialisationController extends Controller
      */
     public function store(StoreSpecialisationRequest $request)
     {
-        //
+        $data = $request->validated();
+        //salvo dati in arrivo dal form
+        $data = $request->all();
+
+        $new_specialisation = new Specialisation();
+
+        $new_specialisation->fill($data);
+
+        $new_specialisation->save();
+
+        return to_route('admin.specialisation.index');
     }
 
     /**
@@ -37,7 +48,7 @@ class SpecialisationController extends Controller
      */
     public function show(Specialisation $specialisation)
     {
-        //
+        return view('admin.specialisation.show', compact('specialisation'));
     }
 
     /**
@@ -45,7 +56,7 @@ class SpecialisationController extends Controller
      */
     public function edit(Specialisation $specialisation)
     {
-        //
+        return view('admin.specialisation.edit', compact('specialisation'));
     }
 
     /**
@@ -53,7 +64,15 @@ class SpecialisationController extends Controller
      */
     public function update(UpdateSpecialisationRequest $request, Specialisation $specialisation)
     {
-        //
+        $data = $request->validated();
+
+        $specialisation->update($data);
+
+        $specialisation->save();
+
+        // Redirect alla pagina di visualizzazione dei dettagli o mostrare un messaggio di successo
+        session()->flash('success', 'Modifica avvenuta con successo.');
+        return redirect()->route('admin.specialisation.index');
     }
 
     /**
@@ -61,6 +80,8 @@ class SpecialisationController extends Controller
      */
     public function destroy(Specialisation $specialisation)
     {
-        //
+        $specialisation->delete();
+        session()->flash('succes', 'Succesfully Delete');
+        return redirect()->route('admin.specialisation.index');
     }
 }

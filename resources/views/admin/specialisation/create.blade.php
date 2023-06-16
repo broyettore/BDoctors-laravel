@@ -10,9 +10,8 @@
             @include('partials.errors')
         </div>
         
-        <form action="{{ route('admin.doctor.update', $doctor) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.doctor.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
 
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
@@ -41,9 +40,6 @@
 
             <div class="mb-3">
                 <input type="submit" value="Submit" class="btn ms-btn-primary">
-            </div>
-            <div class="mb-3">
-                <input type="submit" value="Save" class="btn ms-btn-primary">
             </div>
         </form>
         
