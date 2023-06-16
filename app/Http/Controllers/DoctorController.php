@@ -61,8 +61,6 @@ class DoctorController extends Controller
             $newDoctor->specialisations()->sync($data['specialisations']);
         }
 
-        dd($data);
-
         return to_route('admin.doctor.show', $newDoctor->id);
     }
 
@@ -81,8 +79,8 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-    $specialisations = Specialisation::all();
-    return view('admin.doctor.edit', compact("doctor", "specialisations"));
+        $specialisations = Specialisation::all();
+        return view('admin.doctor.edit', compact("doctor", "specialisations"));
     }
 
     /**
@@ -92,24 +90,22 @@ class DoctorController extends Controller
     {
         $data = $request->validated();
 
-        dd($data);
+        // dd($data);
 
-                if ($doctor->photo) {
-                    Storage::delete($doctor->photo);
-                    $doctor->photo = Storage::put('uploads', $data['photo']);
-                }
+        if ($doctor->photo) {
+            Storage::delete($doctor->photo);
+            $doctor->photo = Storage::put('uploads', $data['photo']);
+        }
 
-                if ($doctor->cv) {
-                    Storage::delete($doctor->cv);
-                    $doctor->photo = Storage::put('uploads', $data['photo']);
-                }
+        if ($doctor->cv) {
+            Storage::delete($doctor->cv);
+            $doctor->photo = Storage::put('uploads', $data['photo']);
+        }
 
-
-                $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
-                $doctor->specialisations()->sync($specialisations);
-                
-                $doctor->update($data);
-                
+        $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
+        $doctor->specialisations()->sync($specialisations);
+        // dd($doctor->specialisations);
+        $doctor->update($data);
 
 
         return to_route('admin.doctor.show', $doctor->id);
@@ -125,7 +121,7 @@ class DoctorController extends Controller
             Storage::delete($doctor->photo);
         }
 
-         // if photo exists, deletes it from storage
+        // if photo exists, deletes it from storage
         if ($doctor->cv) {
             Storage::delete($doctor->cv);
         }
