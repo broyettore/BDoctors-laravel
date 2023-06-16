@@ -10,7 +10,7 @@
             @include('partials.errors')
         </div>
         
-        <form action="{{ route('admin.doctor.update', $doctor) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.doctor.update', $doctor->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -20,8 +20,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
+                <label for="phone_number" class="form-label">Phone Number Number</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number') }}">
             </div>
 
             <div class="mb-3">

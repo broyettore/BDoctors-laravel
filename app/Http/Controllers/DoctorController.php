@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use PhpParser\Comment\Doc;
 
 class DoctorController extends Controller
 {
@@ -19,9 +22,9 @@ class DoctorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Doctor $doctor)
     {
-        return view('admin.doctor.create');
+        return view('admin.doctor.create', compact("doctor"));
     }
 
     /**
@@ -29,7 +32,32 @@ class DoctorController extends Controller
      */
     public function store(StoreDoctorRequest $request)
     {
-        return to_route('admin.doctor.show');
+        $user = User::all();
+        $data = $request->validated();
+
+        
+        $newDoctor = new Doctor();
+        $newDoctor->fill($data);
+
+        foreach ($user as $key) {
+            $newDoctor->user_id =  $key->id;
+            $newDoctor->update();
+        }
+
+        // check if photo exists and puts it in storage
+        if (isset($data["photo"])) {
+            $newDoctor->photo = Storage::put("uploads", $data["photo"]);
+        }
+
+        // check if cv exists and puts it in storage
+        if (isset($data["cv"])) {
+            $newDoctor->cv = Storage::put("uploads", $data["cv"]);
+        }
+
+        $newDoctor->save();
+
+
+        return to_route('admin.doctor.show', $newDoctor->id);
     }
 
     /**
@@ -37,7 +65,8 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        return view('admin.doctor.show');
+        $user = User::all();
+        return view('admin.doctor.show', compact("doctor", "user"));
     }
 
     /**
@@ -45,7 +74,7 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-    return view('admin.doctor.edit');
+    return view('admin.doctor.edit', compact("doctor"));
     }
 
     /**
@@ -53,6 +82,20 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
+        $data = $request->validated();
+
+                if ($doctor->photo) {
+                    Storage::delete($doctor->photo);
+                    $doctor->photo = Storage::put('uploads', $data['photo']);
+                }
+
+                if ($doctor->cv) {
+                    Storage::delete($doctor->cv);
+                    $doctor->photo = Storage::put('uploads', $data['photo']);
+                }
+
+
+        $doctor->update($data);
         return to_route('admin.doctor.show', $doctor->id);
     }
 
@@ -61,6 +104,18 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
+        // if photo exists,deletes it from storage
+        if ($doctor->photo) {
+            Storage::delete($doctor->photo);
+        }
+
+         // if photo exists, deletes it from storage
+        if ($doctor->cv) {
+            Storage::delete($doctor->cv);
+        }
+
+        $doctor->delete();
+
         return to_route('admin.dashboard');
     }
 }
