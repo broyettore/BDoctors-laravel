@@ -11,6 +11,8 @@ class Doctor extends Model
 {
     use HasFactory;
 
+    protected $guarded = ["cv", "photo", "user_id"];
+
     public function user():BelongsTo {
         return $this->belongsTo(User::class);
     }
