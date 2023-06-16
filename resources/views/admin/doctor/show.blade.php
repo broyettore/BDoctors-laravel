@@ -8,7 +8,7 @@
             <div>
                 <a href="{{ route('admin.doctor.edit', $doctor) }}" class="btn ms-btn-primary me-2">Edit Doctor
                     Profile</a>
-                <a href="{{route('admin.user.show', $doctor)}}" class="btn ms-btn-primary">Back to User Profile</a>
+                <a href="{{route('admin.user.show', $doctor->user->id)}}" class="btn ms-btn-primary">Back to User Profile</a>
             </div>
         </div>
         <div class="photo-ctn mb-3">
