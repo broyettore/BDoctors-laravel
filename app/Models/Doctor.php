@@ -12,16 +12,16 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    protected $guarded = ["cv", "photo", "user_id"];
+    protected $guarded = ["cv", "photo"];
 
     public function user():BelongsTo {
         return $this->belongsTo(User::class);
     }
 
 
-    public function specialisations()
+    public function specialisations(): BelongsToMany
     {
-        return $this->belongsToMany(Specialisation::class, 'doctor_specialisation');
+        return $this->belongsToMany(Specialisation::class);
     }
     
     public function reviews(): HasMany
