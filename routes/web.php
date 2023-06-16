@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\SpecialisationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/', function () {
 Route::middleware('auth')->name("admin.")->prefix("admin")->group(function () {
     Route::get("/", [DashboardController::class, "index"])->name("dashboard");
     Route::resource("doctor", DoctorController::class);
+    Route::resource("specialisation", SpecialisationController::class);
     Route::resource("user", UserController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

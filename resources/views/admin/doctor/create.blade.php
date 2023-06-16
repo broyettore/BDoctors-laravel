@@ -38,6 +38,13 @@
                 <input type="file" class="form-control" id="photo" name="photo" value="{{ old('photo') }}">
             </div>
 
+            <div class="btn-group my-2" role="group">
+                @foreach ($specialisations as $specialisation)
+                    <input type="checkbox" class="btn-check" value="{{$specialisation->id}}" name="specialisation[]" {{in_array($specialisation->id, old('specialisation', [])) ? 'checked' : ''}} id="{{ $specialisation->id }}" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="{{ $specialisation->id }}">{{ $specialisation->name }}</label>
+                @endforeach
+            </div>
+
             <div class="mb-3">
                 <input type="submit" value="Submit" class="btn ms-btn-primary">
             </div>

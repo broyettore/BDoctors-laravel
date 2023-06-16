@@ -18,6 +18,11 @@ class Doctor extends Model
         return $this->belongsTo(User::class);
     }
 
+
+    public function specialisations()
+    {
+        return $this->belongsToMany(Specialisation::class, 'doctor_specialisation');
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);

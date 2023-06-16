@@ -42,6 +42,9 @@
             <div class="mb-3">
                 <input type="submit" value="Submit" class="btn ms-btn-primary">
             </div>
+            <div class="mb-3">
+                <input type="submit" value="Save" class="btn ms-btn-primary">
+            </div>
         </form>
         
     </div>
