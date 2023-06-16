@@ -4,44 +4,30 @@
 @section('content')
 
     <div class="container py-3">
-            <h1 class="mb-3">Fill the form:</h1>
+        <a href="{{ route('admin.specialisation.index') }}" class="btn ms-btn-primary mb-5">Home</a>
+
+        <h1 class="mb-3">Fill the form:</h1>
 
         <div>
             @include('partials.errors')
         </div>
-        
-        <form action="{{ route('admin.doctor.store') }}" method="post" enctype="multipart/form-data">
-        @csrf
+
+        <form action="{{ route('admin.specialisation.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
 
             <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
             </div>
 
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" name="description" id="description" style="resize: none;" rows="5">{{ old('description') }}</textarea>
             </div>
-
             <div class="mb-3">
-                <label for="services" class="form-label">Services</label>
-                <input type="text" class="form-control" id="services" name="services" value="{{ old('services') }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="cv" class="form-label">Cv</label>
-                <input type="file" class="form-control" id="cv" name="cv" value="{{ old('cv') }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="photo" class="form-label">Photo</label>
-                <input type="file" class="form-control" id="photo" name="photo" value="{{ old('photo') }}">
-            </div>
-
-            <div class="mb-3">
-                <input type="submit" value="Submit" class="btn ms-btn-primary">
+                <input type="submit" value="Save" class="btn ms-btn-primary">
             </div>
         </form>
-        
+
     </div>
 @endsection

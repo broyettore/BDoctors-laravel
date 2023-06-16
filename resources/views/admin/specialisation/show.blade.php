@@ -8,12 +8,14 @@
             <li>Description: {{ $specialisation->description }}</li>
         </ul>
 
-        <a href="{{ route('admin.specialisation.edit', $specialisation->id) }}" class="btn btn-primary">Edit Pecialisation</a>
+        <a href="{{ route('admin.specialisation.edit', $specialisation->id) }}" class="btn ms-btn-primary">Edit Pecialisation</a>
         <a href="#" class="btn btn-danger" data-bs-toggle="modal"
             data-bs-target="#project-{{ $specialisation->id }}">Delete</a>
+        <a href="{{ route('admin.specialisation.index') }}" class="btn ms-btn-primary">Home</a>
+
     </div>
-    <div class="modal fade" id="project-{{ $specialisation->id }}" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="project-{{ $specialisation->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

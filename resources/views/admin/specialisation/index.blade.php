@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <h1 class="mb-3">Specialisations</h1>
+        <div>
+            <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Create</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
