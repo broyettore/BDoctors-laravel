@@ -15,6 +15,7 @@
             <li>Last Name: {{ $user->last_name }}</li>
             <li>Email: {{ $user->email }}</li>
         </ul>
+        @if (isset($user->doctor->reviews))
         <section>
             <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
             <ul class="my-1">
@@ -25,6 +26,7 @@
                     <hr>
                 @endforeach
             </ul>
-        </section>
+        </section>  
+        @endif
     </div>
 @endsection
