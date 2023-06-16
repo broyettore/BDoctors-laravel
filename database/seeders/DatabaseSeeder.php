@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             // DoctorSeeder goes here
             ReviewSeeder::class,
-            VoteSeeder::class
+            VoteSeeder::class,
+            SpecialisationSeeder::class
         ]);
     }
 }
