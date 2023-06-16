@@ -27,7 +27,8 @@ class StoreDoctorRequest extends FormRequest
             "photo" => "required|image",
             "phone_number" => "required|max:20",
             "services" => "required",
-            "user_id" => "exists:user_id,id"
+            "user_id" => "exists:user_id,id",
+            "specialisations" => "exists:specialisations,id"
         ];
     }
 
