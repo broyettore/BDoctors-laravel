@@ -25,7 +25,7 @@
                         <td>{{$specialisation->description}}</td>
                         
                         <td>
-                            <a href="{{route('admin.specialisation.show', $specialisation->id)}}" class="see-profile">--> See Profile <--</a>
+                            <a href="{{route('admin.specialisation.show', $specialisation->id)}}" class="see-profile">--> See Specialisation <--</a>
                         </td>
                         
                     </tr>

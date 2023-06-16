@@ -8,7 +8,7 @@
             <li>Description: {{ $specialisation->description }}</li>
         </ul>
 
-        <a href="{{ route('admin.specialisation.edit', $specialisation->id) }}" class="btn ms-btn-primary">Edit Pecialisation</a>
+        <a href="{{ route('admin.specialisation.edit', $specialisation->id) }}" class="btn ms-btn-primary">Edit Specialisation</a>
         <a href="#" class="btn btn-danger" data-bs-toggle="modal"
             data-bs-target="#project-{{ $specialisation->id }}">Delete</a>
         <a href="{{ route('admin.specialisation.index') }}" class="btn ms-btn-primary">Home</a>
