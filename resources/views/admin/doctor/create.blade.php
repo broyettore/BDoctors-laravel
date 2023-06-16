@@ -38,10 +38,10 @@
                 <input type="file" class="form-control" id="photo" name="photo" value="{{ old('photo') }}">
             </div>
 
-            <div class="btn-group my-2" role="group">
+            <div class="form-check form-check-inline p-0 mb-3">
                 @foreach ($specialisations as $specialisation)
-                    <input type="checkbox" class="btn-check" value="{{$specialisation->id}}" name="specialisation[]" {{in_array($specialisation->id, old('specialisation', [])) ? 'checked' : ''}} id="{{ $specialisation->id }}" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="{{ $specialisation->id }}">{{ $specialisation->name }}</label>
+                    <input type="checkbox" class="btn-check" value="{{$specialisation->id}}" name="specialisations[]" {{in_array($specialisation->id, old('specialisations', [])) ? 'checked' : ''}} id="specialisations" autocomplete="off">
+                    <label class="btn btn-outline-primary mb-2 me-2" for="specialisations">{{ $specialisation->name }}</label>             
                 @endforeach
             </div>
 

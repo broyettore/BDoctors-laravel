@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
+use App\Models\Specialisation;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use PhpParser\Comment\Doc;
@@ -24,7 +25,8 @@ class DoctorController extends Controller
      */
     public function create(Doctor $doctor)
     {
-        return view('admin.doctor.create', compact("doctor"));
+        $specialisations = Specialisation::all();
+        return view('admin.doctor.create', compact("doctor", "specialisations"));
     }
 
     /**
@@ -35,7 +37,6 @@ class DoctorController extends Controller
         $user = User::all();
         $data = $request->validated();
 
-        
         $newDoctor = new Doctor();
         $newDoctor->fill($data);
 
@@ -56,6 +57,11 @@ class DoctorController extends Controller
 
         $newDoctor->save();
 
+        if (isset($data['specialisations'])) {
+            $newDoctor->specialisations()->sync($data['specialisations']);
+        }
+
+        dd($data);
 
         return to_route('admin.doctor.show', $newDoctor->id);
     }
@@ -66,7 +72,8 @@ class DoctorController extends Controller
     public function show(Doctor $doctor)
     {
         $user = User::all();
-        return view('admin.doctor.show', compact("doctor", "user"));
+        $specialisations = Specialisation::all();
+        return view('admin.doctor.show', compact("doctor", "user", "specialisations"));
     }
 
     /**
@@ -74,7 +81,8 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-    return view('admin.doctor.edit', compact("doctor"));
+    $specialisations = Specialisation::all();
+    return view('admin.doctor.edit', compact("doctor", "specialisations"));
     }
 
     /**
@@ -83,6 +91,8 @@ class DoctorController extends Controller
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
         $data = $request->validated();
+
+        dd($data);
 
                 if ($doctor->photo) {
                     Storage::delete($doctor->photo);
@@ -95,7 +105,13 @@ class DoctorController extends Controller
                 }
 
 
-        $doctor->update($data);
+                $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
+                $doctor->specialisations()->sync($specialisations);
+                
+                $doctor->update($data);
+                
+
+
         return to_route('admin.doctor.show', $doctor->id);
     }
 
