@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.specialisation.index') }}">{{ __('Specialisation') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
