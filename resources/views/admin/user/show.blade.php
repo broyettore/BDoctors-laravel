@@ -28,5 +28,17 @@
             </ul>
         </section>  
         @endif
+        @if (isset($user->doctor->votes))
+        <section>
+            <h3>Your valutation ({{ count($user->doctor->votes) }})</h3>
+            <ul class="my-1">
+                <hr>
+                @foreach ($user->doctor->votes as $vote)
+                    <li>{{ $vote->value }}</li>
+                    <hr>
+                @endforeach
+            </ul>
+        </section>  
+        @endif
     </div>
 @endsection
