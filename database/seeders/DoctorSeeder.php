@@ -19,6 +19,7 @@ class DoctorSeeder extends Seeder
 
         $doctors = [
             [
+                "user_id" => "1",
                 "cv" => "",
                 "photo" => "",
                 'address' => '123 Maple Lane, Springville, Anytown, USA',
@@ -26,6 +27,7 @@ class DoctorSeeder extends Seeder
                 'phone_number' => '(555) 123-4567 ',
             ],
             [
+                "user_id" => "2",
                 "cv" => "",
                 "photo" => "",
                 'address' => '987 Willow Street, Brooksville, Anytown, USA',
@@ -33,6 +35,7 @@ class DoctorSeeder extends Seeder
                 'phone_number' => '(555) 234-5678',
             ],
             [
+                "user_id" => "3",
                 "cv" => "",
                 "photo" => "",
                 'address' => '456 Oak Avenue, Sunnydale, Anytown, USA',
@@ -40,6 +43,7 @@ class DoctorSeeder extends Seeder
                 'phone_number' => '(555) 345-6789',
             ],
             [
+                "user_id" => "4",
                 "cv" => "",
                 "photo" => "",
                 'address' => '789 Elm Court, Riverview, Anytown, USA',
@@ -47,6 +51,7 @@ class DoctorSeeder extends Seeder
                 'phone_number' => '(555) 456-7890',
             ],
             [
+                "user_id" => "5",
                 "cv" => "",
                 "photo" => "",
                 'address' => '321 Pine Road, Lakeside, Anytown, USA',
@@ -61,10 +66,6 @@ class DoctorSeeder extends Seeder
 
         foreach ($doctors as $doctor) {
             $new_doctor = new Doctor();
-
-            foreach($users as $user) {
-                $new_doctor->user_id = $user->id;
-            }
 
             foreach ($doctor as $key => $value) {
                 $new_doctor->$key = $value;
