@@ -13,7 +13,7 @@
                         Profile</a>
                 </div>
             @else
-                <a href="{{ route('admin.doctor.create', $user) }}" class="btn ms-btn-primary">Create Doctor Profile</a>
+                <a href="{{ route('admin.doctor.create', ['id'=>$user->id]) }}" class="btn ms-btn-primary">Create Doctor Profile</a>
             @endif
         </div>
 
