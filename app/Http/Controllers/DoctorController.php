@@ -34,16 +34,10 @@ class DoctorController extends Controller
      */
     public function store(StoreDoctorRequest $request)
     {
-        $user = User::all();
         $data = $request->validated();
-
+        
         $newDoctor = new Doctor();
         $newDoctor->fill($data);
-
-        foreach ($user as $key) {
-            $newDoctor->user_id =  $key->id;
-            $newDoctor->update();
-        }
 
         // check if photo exists and puts it in storage
         if (isset($data["photo"])) {
@@ -90,8 +84,6 @@ class DoctorController extends Controller
     {
         $data = $request->validated();
 
-        // dd($data);
-
         if ($doctor->photo) {
             Storage::delete($doctor->photo);
             $doctor->photo = Storage::put('uploads', $data['photo']);
@@ -104,9 +96,8 @@ class DoctorController extends Controller
 
         $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
         $doctor->specialisations()->sync($specialisations);
-        // dd($doctor->specialisations);
-        $doctor->update($data);
 
+        $doctor->update($data);
 
         return to_route('admin.doctor.show', $doctor->id);
     }
