@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreDoctorRequest extends FormRequest
 {
@@ -27,7 +28,7 @@ class StoreDoctorRequest extends FormRequest
             "photo" => "required|image",
             "phone_number" => "required|max:20",
             "services" => "required",
-            "user_id" => "exists:user_id,id",
+            "user_id" => Rule::exists('users', 'id'),
             "specialisations" => "exists:specialisations,id"
         ];
     }
