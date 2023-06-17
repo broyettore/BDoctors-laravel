@@ -9,7 +9,7 @@
         @endif
         <h1 class="mb-3">Specialisations</h1>
         <div>
-            <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Create</a>
+            <a class="btn ms-btn-primary mb-3" href="{{ route('admin.specialisation.create') }}">Create</a>
         </div>
         <table class="table">
             <thead>
