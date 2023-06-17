@@ -11,7 +11,7 @@
 
         <form action="{{ route('admin.doctor.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-
+            <input type="text" name="user_id" value="{{ app('request')->input('id') }}" class="d-none">
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}">
