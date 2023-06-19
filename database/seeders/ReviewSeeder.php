@@ -34,7 +34,7 @@ class ReviewSeeder extends Seeder
                 'description' => 'Professionale ed empatico....bravissimo!Ha fatto una visita completa ed accurata, non fermandosi solo al problema per cui ho richiesto il suo aiuto. Grazie'
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 2,
                 'first_name' => 'Alfonso',
                 'last_name' => 'Storti',
                 'email' => 'storti22@gmail.com',
@@ -42,49 +42,49 @@ class ReviewSeeder extends Seeder
                 Consigliatissimo"
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 2,
                 'first_name' => 'Giulio',
                 'last_name' => 'Genova',
                 'email' => 'giulio77@gmail.com',
                 'description' => "Grande cortesia, disponibilità all'ascolto, chiarezza e puntualità nelle spiegazioni!"
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 3,
                 'first_name' => 'Caterina',
                 'last_name' => 'Bindi',
                 'email' => 'caty@icloud.com',
                 'description' => "La dottoressa è molto preparata, sempre disponibile e cordiale. Conduce la visita in maniera molto empatica. Identifica in maniera precisa le problematiche di salute e le sue prescrizioni sono molto efficaci."
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 3,
                 'first_name' => 'Erica',
                 'last_name' => 'Battista',
                 'email' => 'ericabattista@outlook.com',
                 'description' => "Sono ampiamente soddisfatto del Dottore altrimenti non sarebbero circa 25 anni che sono con lui con tutta la mia famiglia buona giornata"
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 4,
                 'first_name' => 'Veronica',
                 'last_name' => 'Giunta',
                 'email' => 'veronicagiunta@outlook.com',
                 'description' => "Persona molto cortese. Sono stato ricevuto all'orario indicato. Disponibile all'ascolto. Ha osservato con meticolosità i referti. Mette a proprio agio i suoi assistiti."
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 4,
                 'first_name' => 'Emilio',
                 'last_name' => 'Scaccia',
                 'email' => 'scaccia1989@outlook.com',
                 'description' => "Grande disponibilità all'ascolto e alla soluzione di problemi. Ottima puntualità. La visita è stata accurata e risolutiva."
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 5,
                 'first_name' => 'Virginia',
                 'last_name' => 'Speciale',
                 'email' => 'specialevirginia@gmail.com',
                 'description' => "E’ il mio medico di base da circa 30 anni e sono sempre molto soddisfatta della cortesia, disponibilità e professionalità"
             ],
             [
-                'doctor_id' => 1,
+                'doctor_id' => 5,
                 'first_name' => 'Cesare',
                 'last_name' => 'Grandi',
                 'email' => 'grandi7720@gmail.com',
