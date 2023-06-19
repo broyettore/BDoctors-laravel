@@ -13,7 +13,8 @@
                         Profile</a>
                 </div>
             @else
-                <a href="{{ route('admin.doctor.create', ['id'=>$user->id]) }}" class="btn ms-btn-primary">Create Doctor Profile</a>
+                <a href="{{ route('admin.doctor.create', ['id' => $user->id]) }}" class="btn ms-btn-primary">Create Doctor
+                    Profile</a>
             @endif
         </div>
 
@@ -30,30 +31,37 @@
             @endif
         </ul>
 
-        @if (isset($user->doctor->reviews))
-            <section>
-                <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
-                <ul class="my-1">
-                    <hr>
-                    @foreach ($user->doctor->reviews as $review)
-                        <li>{{ $review->first_name . ' ' . $review->last_name }} ( {{ $review->email }})</li>
-                        <li>{{ $review->description }}</li>
-                        <hr>
-                    @endforeach
-                </ul>
-            </section>
-        @endif
-        @if (isset($user->doctor->votes))
-            <section>
-                <h3>Your valutation ({{ count($user->doctor->votes) }})</h3>
-                <ul class="my-1">
-                    <hr>
-                    @foreach ($user->doctor->votes as $vote)
-                        <li>{{ $vote->value }}</li>
-                        <hr>
-                    @endforeach
-                </ul>
-            </section>
-        @endif
+        <div class="row d-flex">
+            <div class="col-8">
+                @if (isset($user->doctor->reviews))
+                    <section>
+                        <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
+                        <ul class="my-1">
+                            <hr>
+                            @foreach ($user->doctor->reviews as $review)
+                                <li>{{ $review->first_name . ' ' . $review->last_name }} ( {{ $review->email }})</li>
+                                <li>{{ $review->description }}</li>
+                                <hr>
+                            @endforeach
+                        </ul>
+                    </section>
+                @endif
+            </div>
+            <div class="col-3">
+                @if (isset($user->doctor->votes))
+                    <section>
+                        <h3>Your valutation ({{ count($user->doctor->votes) }})</h3>
+                        <ul class="my-1">
+                            <hr>
+                            @foreach ($user->doctor->votes as $vote)
+                                <li>{{ $vote->value }}</li>
+                                <hr>
+                            @endforeach
+                        </ul>
+                    </section>
+                @endif
+            </div>
+        </div>
+
     </div>
 @endsection
