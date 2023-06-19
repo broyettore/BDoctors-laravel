@@ -13,7 +13,8 @@
                         Profile</a>
                 </div>
             @else
-                <a href="{{ route('admin.doctor.create', ['id'=>$user->id]) }}" class="btn ms-btn-primary">Create Doctor Profile</a>
+                <a href="{{ route('admin.doctor.create', ['id' => $user->id]) }}" class="btn ms-btn-primary">Create Doctor
+                    Profile</a>
             @endif
         </div>
 
@@ -29,7 +30,30 @@
                 @endforeach
             @endif
         </ul>
+        {{-- offcanvas per la visualizazzione dei messaggi ricevuti --}}
+        <button class="btn ms-btn-primary mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+            aria-controls="staticBackdrop">
+            Messagges
+        </button>
 
+        <div class="offcanvas offcanvas-end"  tabindex="-1" id="staticBackdrop"
+            aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="staticBackdropLabel">Messagges</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                @foreach ($user->doctor->messagges as $messagge)
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ $messagge->first_name }}{{ $messagge->last_name }}</h5>
+                      <p class="mb-1">{{ $messagge->body }}</p>
+                      <span>{{ $messagge->email }}</span>
+                    </div>
+                  </div>
+                @endforeach
+            </div>
+        </div>
         @if (isset($user->doctor->reviews))
             <section>
                 <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>

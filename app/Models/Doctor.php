@@ -31,7 +31,7 @@ class Doctor extends Model
 
     public function messagges(): HasMany
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Messagge::class);
     }
 
 
