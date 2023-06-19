@@ -35,8 +35,6 @@
             aria-controls="staticBackdrop">
             Messagges
         </button>
-
-<<<<<<< HEAD
         <div class="offcanvas offcanvas-end"  tabindex="-1" id="staticBackdrop"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header">
@@ -55,32 +53,6 @@
                 @endforeach
             </div>
         </div>
-        @if (isset($user->doctor->reviews))
-            <section>
-                <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
-                <ul class="my-1">
-                    <hr>
-                    @foreach ($user->doctor->reviews as $review)
-                        <li>{{ $review->first_name . ' ' . $review->last_name }} ( {{ $review->email }})</li>
-                        <li>{{ $review->description }}</li>
-                        <hr>
-                    @endforeach
-                </ul>
-            </section>
-        @endif
-        @if (isset($user->doctor->votes))
-            <section>
-                <h3>Your valutation ({{ count($user->doctor->votes) }})</h3>
-                <ul class="my-1">
-                    <hr>
-                    @foreach ($user->doctor->votes as $vote)
-                        <li>{{ $vote->value }}</li>
-                        <hr>
-                    @endforeach
-                </ul>
-            </section>
-        @endif
-=======
         <div class="row d-flex align-items-start">
             <div class="col-7">
                 @if (isset($user->doctor->reviews))
@@ -119,7 +91,5 @@
                 @endif
             </div>
         </div>
-
->>>>>>> 2614f6d00b8764f694ae6d01dfe07c958e5172a4
     </div>
 @endsection
