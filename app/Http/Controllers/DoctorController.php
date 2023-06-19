@@ -63,9 +63,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        $user = User::all();
-        $specialisations = Specialisation::all();
-        return view('admin.doctor.show', compact("doctor", "user", "specialisations"));
+        return view('admin.doctor.show', compact("doctor"));
     }
 
     /**

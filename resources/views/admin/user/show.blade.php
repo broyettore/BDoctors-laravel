@@ -4,11 +4,12 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="fs-1">User #{{ $user->id }}</h1>
+            <div class="photo-ctn mb-3">
+                <img src=" {{ asset("storage/" . $user->doctor->photo) }}" alt="{{ $user->doctor->last_name }}">
+            </div>
 
             @if ($user->doctor)
                 <div class="d-flex">
-                    <a href="{{ route('admin.doctor.show', $user->doctor->id) }}" class="btn ms-btn-primary me-2">See Doctor
-                        Profile</a>
                     <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary">Edit Doctor
                         Profile</a>
                 </div>
@@ -22,14 +23,20 @@
             <li>First name: {{ $user->first_name }}</li>
             <li>Last Name: {{ $user->last_name }}</li>
             <li>Email: {{ $user->email }}</li>
-            @if (isset($user->doctor->specialisations))
-                @foreach ($user->doctor->specialisations as $specialisation)
-                    <li>
-                        Specialisation: {{ $specialisation->name }}
-                    </li>
-                @endforeach
-            @endif
         </ul>
+        <ul class="mb-3">
+            <li>Address: {{ $user->doctor->address }}</li>
+            <li>Phone Number: {{ $user->doctor->phone_number }}</li>
+            <li>Services: {{ $user->doctor->services }}</li>
+            @if (isset($user->doctor->specialisations))
+            @foreach ($user->doctor->specialisations as $specialisation)
+                <li>
+                    Specialisation: {{ $specialisation->name }}
+                </li>
+            @endforeach
+        @endif
+        </ul>
+        <a href="{{ asset("storage/" . $user->doctor->cv) }}" download="cv.pdf" class="btn ms-btn-primary">Download Cv</a>
 
         <div class="row d-flex align-items-start">
             <div class="col-7">
