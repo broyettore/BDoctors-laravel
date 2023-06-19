@@ -42,7 +42,7 @@ class SponsorshipController extends Controller
 
         $user->doctor->sponsorships()->attach($syncData);
 
-        return view('admin.user.show', compact('user'));
+        return redirect('/admin')->with('user');    
     }
 
     /**
