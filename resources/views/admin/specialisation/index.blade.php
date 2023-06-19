@@ -13,7 +13,6 @@
                 <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Create</a>
             </div>
         </div>
-
         <table class="table">
             <thead>
                 <tr>
@@ -24,13 +23,14 @@
             @foreach ($specialisations as $specialisation)
                 <tbody>
                     <tr>
-                        <td>{{$specialisation->name}}</td>
-                        <td>{{$specialisation->description}}</td>
-                        
+                        <td>{{ $specialisation->name }}</td>
+                        <td>{{ $specialisation->description }}</td>
+
                         <td>
-                            <a href="{{route('admin.specialisation.show', $specialisation->id)}}" class="see-profile">--> See Specialisation <--</a>
+                            <a href="{{ route('admin.specialisation.show', $specialisation->id) }}" class="see-profile">-->
+                                See Specialisation <--< /a>
                         </td>
-                        
+
                     </tr>
                 </tbody>
             @endforeach

@@ -41,7 +41,7 @@
 
    
             @foreach ($specialisations as $specialisation)
-                <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline mb-3">
                     <input class="form-check-input" type="checkbox" id="specialisations" value="{{ $specialisation->id }}"
                         name="specialisations[]"
                         {{ in_array($specialisation->id, old('specialisations', [])) ? 'checked' : '' }}>

@@ -91,7 +91,7 @@ class DoctorController extends Controller
 
         if ($doctor->cv) {
             Storage::delete($doctor->cv);
-            $doctor->photo = Storage::put('uploads', $data['photo']);
+            $doctor->cv = Storage::put('uploads', $data['cv']);
         }
 
         $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
