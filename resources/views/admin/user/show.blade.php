@@ -1,35 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h1 class="fs-1">User #{{ $user->id }}</h1>
+    <div class="container py-3">
+        <div class="ms-use d-md-flex justify-content-between align-items-start mb-5">
+            <div class="left mb-3">
+                @if (isset($user->doctor->user_id))
+                <h1 class="fs-1">User #{{ $user->id }} / Doctor #{{ $user->doctor->user_id }}</h1>
+                @else
+                <h1 class="fs-1">User #{{ $user->id }}</h1>
+                @endif
 
-            @if ($user->doctor)
-                <div class="d-flex">
-                    <a href="{{ route('admin.doctor.show', $user->doctor->id) }}" class="btn ms-btn-primary me-2">See Doctor
-                        Profile</a>
-                    <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary">Edit Doctor
-                        Profile</a>
+                <ul class="my-3">
+                    <li>First name: {{ $user->first_name }}</li>
+                    <li>Last Name: {{ $user->last_name }}</li>
+                    <li>Email: {{ $user->email }}</li>
+                </ul>
+                    
+                @if (isset($user->doctor))
+                <ul class="mb-3">
+                    <li>Address: {{ $user->doctor->address }}</li>
+                    <li>Phone Number: {{ $user->doctor->phone_number }}</li>
+                    <li>Services: {{ $user->doctor->services }}.</li>
+                    @if (isset($user->doctor->specialisations))
+                    <li>
+                        Specialisation:
+                        @foreach ($user->doctor->specialisations as $specialisation)
+                        @if ($loop->last)
+                        <span>{{ $specialisation->name }}</span>.
+                        @else     
+                        <span>{{ $specialisation->name }}</span>,
+                        @endif
+                        @endforeach
+                    </li>
+                    @endif
+                </ul>
+                @endif
+
+                <div class="btn-nav d-flex mb-4">
+                    @if ($user->doctor)
+                        <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary me-2">Edit Doctor
+                            Profile
+                        </a>
+                        <a href="{{ asset("storage/" . $user->doctor->cv) }}" download="cv.pdf" class="btn ms-btn-primary">Download Cv</a>
+                    @else
+                        <a href="{{ route('admin.doctor.create', ['id' => $user->id]) }}" class="btn ms-btn-primary me-2">Create Doctor
+                            Profile
+                        </a>
+                    @endif
                 </div>
-            @else
-                <a href="{{ route('admin.doctor.create', ['id' => $user->id]) }}" class="btn ms-btn-primary">Create Doctor
-                    Profile</a>
+            </div>
+            
+            @if (isset($user->doctor))
+            <div class="d-none d-md-block right photo-ctn mb-3">
+                <img src=" {{ asset("storage/" . $user->doctor->photo) }}" alt="{{ $user->doctor->last_name }}">
+            </div>
             @endif
         </div>
 
-        <ul class="my-3">
-            <li>First name: {{ $user->first_name }}</li>
-            <li>Last Name: {{ $user->last_name }}</li>
-            <li>Email: {{ $user->email }}</li>
-            @if (isset($user->doctor->specialisations))
-                @foreach ($user->doctor->specialisations as $specialisation)
-                    <li>
-                        Specialisation: {{ $specialisation->name }}
-                    </li>
-                @endforeach
-            @endif
-        </ul>
+        @if (isset($user->doctor))
         {{-- offcanvas per la visualizazzione dei messaggi ricevuti --}}
         <button class="btn ms-btn-primary mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
             aria-controls="staticBackdrop">
@@ -55,8 +83,9 @@
             </div>
         </div>
         @endif
+
         <div class="row d-flex align-items-start">
-            <div class="col-7">
+            <div class="col-12 col-md-7">
                 @if (isset($user->doctor->reviews))
                     <section>
                         <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
@@ -71,10 +100,10 @@
                     </section>
                 @endif
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 @if (isset($user->doctor->votes))
                     <section>
-                        <h3>Your valutation ({{ count($user->doctor->votes) }})</h3>
+                        <h3>Your Rating ({{ count($user->doctor->votes) }})</h3>
                         <ul class="my-1">
                             <hr>
                             @foreach ($user->doctor->votes as $vote)
@@ -93,5 +122,6 @@
                 @endif
             </div>
         </div>
+        @endif
     </div>
 @endsection
