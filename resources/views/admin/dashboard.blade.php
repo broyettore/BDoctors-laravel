@@ -12,25 +12,20 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            
+
             @foreach ($users as $user)
-                
                 <tbody>
                     <tr>
-                        <td>{{$user->first_name}}</td>
-                        <td>{{$user->last_name}}</td>
-                        <td>{{$user->email}}</td>
+                        <td>{{ $user->first_name }}</td>
+                        <td>{{ $user->last_name }}</td>
+                        <td>{{ $user->email }}</td>
                         {{-- <td>{{$user->doctor}}</td> --}}
-                        
                         <td>
-                            <a href="{{route('admin.user.show', $user->id)}}" class="see-profile">--> See Profile <--</a>
+                            <a href="{{ route('admin.user.show', $user->id) }}" class="see-profile">--> See Profile <-- </a>
                         </td>
-                        
                     </tr>
                 </tbody>
             @endforeach
         </table>
-
-
     </div>
 @endsection

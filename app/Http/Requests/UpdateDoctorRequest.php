@@ -23,7 +23,7 @@ class UpdateDoctorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "cv" => "required|file",
+            "cv" => "required|file|mimes:pdf",
             "address" => "required|max:100",
             "photo" => "required|image",
             "phone_number" => "required|max:20",

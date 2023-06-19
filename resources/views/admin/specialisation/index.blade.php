@@ -7,9 +7,11 @@
                 {{ session('success') }}
             </div>
         @endif
-        <h1 class="mb-3">Specialisations</h1>
-        <div>
-            <a class="btn ms-btn-primary mb-3" href="{{ route('admin.specialisation.create') }}">Create</a>
+        <div class="d-flex justify-content-between">
+            <h1 class="mb-3">Specialisations</h1>
+            <div>
+                <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Create</a>
+            </div>
         </div>
         <table class="table">
             <thead>
@@ -21,13 +23,14 @@
             @foreach ($specialisations as $specialisation)
                 <tbody>
                     <tr>
-                        <td>{{$specialisation->name}}</td>
-                        <td>{{$specialisation->description}}</td>
-                        
+                        <td>{{ $specialisation->name }}</td>
+                        <td>{{ $specialisation->description }}</td>
+
                         <td>
-                            <a href="{{route('admin.specialisation.show', $specialisation->id)}}" class="see-profile">--> See Specialisation <--</a>
+                            <a href="{{ route('admin.specialisation.show', $specialisation->id) }}" class="see-profile">-->
+                                See Specialisation <--< /a>
                         </td>
-                        
+
                     </tr>
                 </tbody>
             @endforeach

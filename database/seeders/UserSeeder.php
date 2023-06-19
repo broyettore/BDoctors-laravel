@@ -19,30 +19,42 @@ class UserSeeder extends Seeder
                 'first_name' => 'Gaspare',
                 'last_name' => 'Monte',
                 'email' => 'gaspare@icloud.com',
+                'is_admin' => 0,
                 'password' => '12345678'
             ],
             [
                 'first_name' => 'Roy',
                 'last_name' => 'Bagnarola',
                 'email' => 'roy@gmail.com',
+                'is_admin' => 0,
                 'password' => '12345678'
             ],
             [
                 'first_name' => 'Luca',
                 'last_name' => 'Paolella',
                 'email' => 'luca@outlook.com',
+                'is_admin' => 0,
                 'password' => '12345678'
             ],
             [
                 'first_name' => 'Daniele',
                 'last_name' => 'Balestro',
                 'email' => 'daniele@yahoo.com',
+                'is_admin' => 0,
                 'password' => '12345678'
             ],
             [
                 'first_name' => 'Mikel',
                 'last_name' => 'Gremi',
                 'email' => 'mikel@libero.com',
+                'is_admin' => 0,
+                'password' => '12345678'
+            ],
+            [
+                'first_name' => 'Gaetano',
+                'last_name' => 'Frascolla',
+                'email' => 'gaetano@gmail.com',
+                'is_admin' => 1,
                 'password' => '12345678'
             ]
         ];

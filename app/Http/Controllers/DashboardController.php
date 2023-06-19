@@ -25,8 +25,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $specialisation = Specialisation::all();
-        return view('admin.dashboard', compact('users'));
+        $user = auth()->user();
+
+        if ($user->is_admin) {
+            $users = User::all();
+            return view('admin.dashboard', compact('users'));
+        } else {
+            return view('admin.user.show', compact('user'));
+        }
     }
 }
