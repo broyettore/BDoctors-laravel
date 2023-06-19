@@ -31,8 +31,8 @@
             @endif
         </ul>
 
-        <div class="row d-flex">
-            <div class="col-8">
+        <div class="row d-flex align-items-start">
+            <div class="col-7">
                 @if (isset($user->doctor->reviews))
                     <section>
                         <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
@@ -47,14 +47,21 @@
                     </section>
                 @endif
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 @if (isset($user->doctor->votes))
                     <section>
                         <h3>Your valutation ({{ count($user->doctor->votes) }})</h3>
                         <ul class="my-1">
                             <hr>
                             @foreach ($user->doctor->votes as $vote)
-                                <li>{{ $vote->value }}</li>
+                                <li>
+                                    <div class="d-flex">
+                                        @for ($i = 0; $i < $vote->value; $i++)
+                                            <i class="fa-solid fa-star valutation-star"></i>
+                                        @endfor
+                                    </div>
+
+                                </li>
                                 <hr>
                             @endforeach
                         </ul>
