@@ -28,7 +28,6 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         if ($user->is_admin) {
-            $specialisation = Specialisation::all();
             $users = User::all();
             return view('admin.dashboard', compact('users'));
         } else {
