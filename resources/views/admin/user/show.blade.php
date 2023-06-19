@@ -36,6 +36,18 @@
                                 @endforeach
                             </li>
                         @endif
+                        @if (isset($user->doctor->sponsorships))
+                            <li>
+                                Sponsorship:
+                                @foreach ($user->doctor->sponsorships as $sponsorship)
+                                    @if ($loop->last)
+                                        <span>{{ $sponsorship->name }}</span>.
+                                    @else
+                                        <span>{{ $sponsorship->name }}</span>,
+                                    @endif
+                                @endforeach
+                            </li>
+                        @endif
                     </ul>
                 @endif
                 {{-- /Professional Datas --}}
