@@ -10,12 +10,15 @@
                     <h1 class="fs-1">User #{{ $user->id }}</h1>
                 @endif
 
+                {{-- Personal Datas --}}
                 <ul class="my-3">
                     <li>First name: {{ $user->first_name }}</li>
                     <li>Last Name: {{ $user->last_name }}</li>
                     <li>Email: {{ $user->email }}</li>
                 </ul>
+                {{-- /Personal Datas --}}
 
+                {{-- Professional Datas --}}
                 @if (isset($user->doctor))
                     <ul class="mb-3">
                         <li>Address: {{ $user->doctor->address }}</li>
@@ -35,20 +38,23 @@
                         @endif
                     </ul>
                 @endif
+                {{-- /Professional Datas --}}
 
                 <div class="btn-nav d-flex align-items-start mb-4">
                     @if ($user->doctor)
+                        {{-- Nav Buttons --}}
                         <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary me-2">Edit
                             Doctor
                             Profile
                         </a>
                         <a href="{{ asset('storage/' . $user->doctor->cv) }}" download="cv.pdf"
                             class="btn ms-btn-primary me-2">Download Cv</a>
-                        {{-- offcanvas per la visualizazzione dei messaggi ricevuti --}}
                         <button class="btn ms-btn-primary mb-3" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                             Messagges
                         </button>
+                        {{-- /Nav Buttons --}}
+                        {{-- offcanvas per la visualizazzione dei messaggi ricevuti --}}
                         @if (isset($user->doctor->messagges))
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="staticBackdrop"
                                 aria-labelledby="staticBackdropLabel">
@@ -81,14 +87,17 @@
                 </div>
             </div>
 
+            {{-- Doctor Photo  --}}
             @if (isset($user->doctor))
                 <div class="d-none d-md-block right photo-ctn mb-3">
                     <img src=" {{ asset('storage/' . $user->doctor->photo) }}" alt="{{ $user->doctor->last_name }}">
                 </div>
             @endif
         </div>
+        {{-- /Doctor Photo  --}}
 
         @if (isset($user->doctor))
+            {{-- Review Section  --}}
             <div class="row d-flex align-items-start">
                 <div class="col-12 col-md-7">
                     @if (isset($user->doctor->reviews))
@@ -105,6 +114,9 @@
                         </section>
                     @endif
                 </div>
+                {{-- /Review Section  --}}
+
+                {{-- Rating Section  --}}
                 <div class="col-12 col-md-4">
                     @if (isset($user->doctor->votes))
                         <section>
@@ -118,7 +130,6 @@
                                                 <i class="fa-solid fa-star valutation-star"></i>
                                             @endfor
                                         </div>
-
                                     </li>
                                     <hr>
                                 @endforeach
@@ -127,6 +138,7 @@
                     @endif
                 </div>
             </div>
+            {{-- /Rating Section  --}}
         @endif
     </div>
 @endsection

@@ -12,12 +12,6 @@ body, nav, .ms-drop {
     background-color: $body-bg;
 }
 
-
-
-
-
-
-
 /********** COMMON **************/
 a {
     text-decoration: none;
@@ -32,9 +26,11 @@ ul, li, h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+/********** Button Styling **************/
+
 .ms-btn-primary {
     background-color: #98EECC;
-
+    
     &:hover {
         background-color: #00DFA2;
         transform: scale(1.1);
@@ -44,13 +40,18 @@ ul, li, h1, h2, h3, h4, h5, h6 {
 
 .see-profile {
     color: #000;
-
+    
     &:hover {
         color: #00DFA2;
         transition: ease .40s;
     }
 }
 
+.valutation-star {
+    color: #00DFA2;
+}
+
+/********** Photo *********/
 .photo-ctn {
     height: 300px;
     width: 300px;
@@ -64,6 +65,3 @@ ul, li, h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.valutation-star {
-    color: #00DFA2;
-}
