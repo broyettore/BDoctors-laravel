@@ -14,7 +14,8 @@ class Doctor extends Model
 
     protected $guarded = ["cv", "photo"];
 
-    public function user():BelongsTo {
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -23,7 +24,7 @@ class Doctor extends Model
     {
         return $this->belongsToMany(Specialisation::class);
     }
-    
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -42,6 +43,7 @@ class Doctor extends Model
 
     public function sponsorships(): BelongsToMany
     {
-        return $this->belongsToMany(Sponsorship::class);
+        return $this->belongsToMany(Sponsorship::class)
+            ->withPivot(["end_date"]);;
     }
 }
