@@ -8,9 +8,12 @@ import.meta.glob([
 
 const sponsorshipBoxes = document.querySelectorAll('.sponsorship-box');
 const sponsorshipOptions = document.querySelectorAll('.sponsorship-option');
+const buyButton = document.querySelector('.buy-sponsorship');
 
 sponsorshipOptions.forEach(sponsorship => {
     sponsorship.addEventListener('change', function () {
+        buyButton.classList.remove('d-none');
+
         sponsorshipOptions.forEach(sponsorship => {
             sponsorship.parentElement.classList.remove('sponsorship-selected');
         });
