@@ -6,9 +6,8 @@ use App\Models\Doctor;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
 use App\Models\Specialisation;
-use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\Comment\Doc;
+
 
 class DoctorController extends Controller
 {
@@ -55,7 +54,7 @@ class DoctorController extends Controller
             $newDoctor->specialisations()->sync($data['specialisations']);
         }
 
-        return to_route('admin.doctor.show', $newDoctor->id);
+        return to_route('admin.user.show', $newDoctor->id);
     }
 
     /**
@@ -63,7 +62,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        return view('admin.doctor.show', compact("doctor"));
+        return view('admin.user.show', compact("doctor"));
     }
 
     /**
@@ -82,22 +81,27 @@ class DoctorController extends Controller
     {
         $data = $request->validated();
 
-        if ($doctor->photo) {
-            Storage::delete($doctor->photo);
+        if (isset($data['photo'])) {
+            if ($doctor->photo) {
+                Storage::delete($doctor->photo);
+            }
             $doctor->photo = Storage::put('uploads', $data['photo']);
         }
 
-        if ($doctor->cv) {
-            Storage::delete($doctor->cv);
+        if (isset($data['cv'])) {
+            if ($doctor->cv) {
+                Storage::delete($doctor->cv);
+            }
             $doctor->cv = Storage::put('uploads', $data['cv']);
         }
+
 
         $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
         $doctor->specialisations()->sync($specialisations);
 
         $doctor->update($data);
 
-        return to_route('admin.doctor.show', $doctor->id);
+        return to_route('admin.user.show', $doctor->id);
     }
 
     /**
