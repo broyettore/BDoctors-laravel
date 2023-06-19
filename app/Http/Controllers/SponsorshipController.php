@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sponsorship;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class SponsorshipController extends Controller
 {
@@ -27,9 +29,20 @@ class SponsorshipController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+
+        $sponsorshipInput = (array) $request->input('sponsorship', []);
+        $sponsorship = Sponsorship::find($sponsorshipInput);
+        
+        $end_date = date("Y-m-d H:i:s", strtotime("+{$sponsorship->toArray()[0]['duration']} hours"));
+        $syncData = array_fill_keys($sponsorshipInput, ['end_date' => $end_date]);
+
+        $user->doctor->sponsorships()->sync($syncData);
+
+        return view('admin.user.show', compact('user'));
     }
 
     /**
