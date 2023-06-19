@@ -40,7 +40,7 @@ class SponsorshipController extends Controller
         $end_date = date("Y-m-d H:i:s", strtotime("+{$sponsorship->toArray()[0]['duration']} hours"));
         $syncData = array_fill_keys($sponsorshipInput, ['end_date' => $end_date]);
 
-        $user->doctor->sponsorships()->sync($syncData);
+        $user->doctor->sponsorships()->attach($syncData);
 
         return view('admin.user.show', compact('user'));
     }
