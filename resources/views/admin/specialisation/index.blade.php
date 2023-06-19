@@ -18,17 +18,18 @@
                 <tr>
                     <th scope="col">Specialisation</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             @foreach ($specialisations as $specialisation)
                 <tbody>
                     <tr>
                         <td>{{ $specialisation->name }}</td>
-                        <td>{{ $specialisation->description }}</td>
+                        <td>{{ substr($specialisation->description, 0, -250) }}...</td>
 
                         <td>
                             <a href="{{ route('admin.specialisation.show', $specialisation->id) }}" class="see-profile">-->
-                                See Specialisation <--< /a>
+                                See Specialisation <-- </a>
                         </td>
 
                     </tr>
