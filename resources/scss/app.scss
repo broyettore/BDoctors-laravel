@@ -66,3 +66,53 @@ ul, li, h1, h2, h3, h4, h5, h6 {
 .valutation-star {
     color: #00DFA2;
 }
+/********** welcome **************/
+.container_welcome{
+    background-color: #80bc7d;
+    .container_welcome_top{
+        h1{
+            font-size: 3.125rem;
+            font-weight: 800;
+            margin-top: 2.1875rem;
+        }
+        h3{
+            margin-top: 1.5625rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+    .container_welcome_main{
+        h1{
+            margin-top: 1.25rem;
+        }
+        h3{
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        .main_background{
+            background-image: url(../img/banner-medic.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+    .container_welcome_down{
+        h1{
+            margin-top: 1.25rem;
+            
+        }
+        h3{
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        h4{
+            margin-bottom: 1.25rem;
+            border: 1px solid black;
+        }
+    }
+
+}
+.welcome_banner{
+    height: 410px;
+    background-image: url(/resources/img/Doctors-Physicians-silhouette.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
