@@ -20,7 +20,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-md ms-nav">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     BDoctors
@@ -94,7 +94,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 ms-main">
             @yield('content')
         </main>
     </div>

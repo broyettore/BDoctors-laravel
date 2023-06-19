@@ -1,14 +1,15 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
-
-body, nav, .ms-drop {
+body,
+nav,
+.ms-drop {
     background-color: $body-bg;
 }
 
@@ -21,7 +22,14 @@ ul {
     list-style-type: none;
 }
 
-ul, li, h1, h2, h3, h4, h5, h6 {
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     padding: 0;
 }
@@ -29,33 +37,34 @@ ul, li, h1, h2, h3, h4, h5, h6 {
 /********** Button Styling **************/
 
 .ms-btn-primary {
-    background-color: #98EECC;
-    
+    background-color: #98eecc;
+
     &:hover {
-        background-color: #00DFA2;
+        background-color: #00dfa2;
+        color: #fff;
         transform: scale(1.1);
-        transition: ease-in-out .30s;
+        transition: ease-in-out 0.3s;
     }
 }
 
 .see-profile {
     color: #000;
-    
+
     &:hover {
-        color: #00DFA2;
-        transition: ease .40s;
+        color: #00dfa2;
+        transition: ease 0.4s;
     }
 }
 
 .valutation-star {
-    color: #00DFA2;
+    color: #00dfa2;
 }
 
 /********** Photo *********/
 .photo-ctn {
     height: 300px;
     width: 300px;
-    box-shadow: 2px 1px 15px 5px rgba(0,0,0,0.52);
+    box-shadow: 2px 1px 15px 5px rgba(0, 0, 0, 0.52);
 
     img {
         height: 100%;
@@ -66,54 +75,59 @@ ul, li, h1, h2, h3, h4, h5, h6 {
 }
 
 /********** welcome **************/
-.container_welcome{
-    background-color: #80bc7d;
-    .container_welcome_top{
-        h1{
-            font-size: 3.125rem;
-            font-weight: 800;
-            margin-top: 2.1875rem;
-        }
-        h3{
-            margin-top: 1.5625rem;
-            margin-bottom: 1.25rem;
-        }
-    }
-    .container_welcome_main{
-        h1{
-            margin-top: 1.25rem;
-        }
-        h3{
-            margin-top: 1.25rem;
-            margin-bottom: 1.25rem;
-        }
-        .main_background{
-            background-image: url(../img/banner-medic.png);
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-    }
-    .container_welcome_down{
-        h1{
-            margin-top: 1.25rem;
-            
-        }
-        h3{
-            margin-top: 1.25rem;
-            margin-bottom: 1.25rem;
-        }
-        h4{
-            margin-bottom: 1.25rem;
-            border: 1px solid black;
-        }
-    }
+.ms-nav {
+    background-color: #00dfa2;
 
+    a:hover {
+        color: #fff;
+    }
 }
-.welcome_banner{
-    height: 410px;
-    background-image: url(/resources/img/Doctors-Physicians-silhouette.webp);
-    background-size: contain;
-    background-repeat: no-repeat;
+
+.ms-drop {
+    a:hover {
+        background-color: #00dfa2;
+    }
+}
+
+.banner-ctn {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .welcome_banner {
+        height: 400px;
+        width: 100%;
+        background-image: url(/resources/img/Doctors-Physicians-silhouette.webp);
+        background-size: cover;
+        background-position: 50% 20%;
+        background-repeat: no-repeat;
+        margin-bottom: 30px;
+    }
+    
+    .banner_right{
+        text-align: center;
+    }
+}
+
+.ms-option {
+    border: 1px solid #00dfa2;
+    border-radius: 20px;
+    padding: 20px;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-6px);
+        background-color: #00dfa2;
+        transition: ease-in-out 0.3s;
+    }
+}
+
+.welcome_top,
+.welcome_center,
+.welcome_bottom {
+    padding: 20px;
 }
 /********** Sponsorship **************/
 
@@ -123,6 +137,40 @@ ul, li, h1, h2, h3, h4, h5, h6 {
 }
 
 .sponsorship-selected {
-    background-color: #00DFA2;
+    background-color: #00dfa2;
     color: white;
+}
+
+/************** Manual media queries ***************/
+
+@media screen and (min-width: 768px) {
+    .welcome_top,
+    .welcome_center,
+    .welcome_bottom {
+        padding: 60px;
+    }
+
+    .banner-ctn {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+        .welcome_banner {
+            height: 400px;
+            width: 48%;
+            background-image: url(/resources/img/Doctors-Physicians-silhouette.webp);
+            background-size: cover;
+            background-position: 50% 20%;
+            background-repeat: no-repeat;
+            margin-bottom: 30px;
+    
+        }
+        
+        .banner_right{
+            text-align: left;
+            width: 48%;
+        }
+    }
 }
