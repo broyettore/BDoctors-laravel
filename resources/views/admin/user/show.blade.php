@@ -35,6 +35,7 @@
             aria-controls="staticBackdrop">
             Messagges
         </button>
+        @if (isset($user->doctor->messagges))
         <div class="offcanvas offcanvas-end"  tabindex="-1" id="staticBackdrop"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header">
@@ -53,6 +54,7 @@
                 @endforeach
             </div>
         </div>
+        @endif
         <div class="row d-flex align-items-start">
             <div class="col-7">
                 @if (isset($user->doctor->reviews))
