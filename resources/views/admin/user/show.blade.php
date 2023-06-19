@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-3">
-        <div class="ms-use d-md-flex justify-content-between align-items-start mb-5">
+        <div class="ms-use d-md-flex justify-content-between align-items-start mb-3">
             <div class="left mb-3">
                 @if (isset($user->doctor->user_id))
                     <h1 class="fs-1">User #{{ $user->id }} / Doctor #{{ $user->doctor->user_id }}</h1>
@@ -32,18 +32,6 @@
                                         <span>{{ $specialisation->name }}</span>.
                                     @else
                                         <span>{{ $specialisation->name }}</span>,
-                                    @endif
-                                @endforeach
-                            </li>
-                        @endif
-                        @if (isset($user->doctor->sponsorships))
-                            <li>
-                                Sponsorship:
-                                @foreach ($user->doctor->sponsorships as $sponsorship)
-                                    @if ($loop->last)
-                                        <span>{{ $sponsorship->name }}</span>.
-                                    @else
-                                        <span>{{ $sponsorship->name }}</span>,
                                     @endif
                                 @endforeach
                             </li>
@@ -107,6 +95,22 @@
             @endif
         </div>
         {{-- /Doctor Photo  --}}
+
+        @if (isset($user->doctor->sponsorships))
+            <section class="mb-3">
+                <h3>Sponsorships:</h3>
+                <ol>
+                    @foreach ($user->doctor->sponsorships as $sponsorship)
+                        <li>
+                            <span>Type: {{ $sponsorship->name }} - </span>
+                            <span>End date: {{ $sponsorship->pivot->end_date }} - </span>
+                            <span>Price: {{ $sponsorship->price }}€ </span>
+                        </li>
+                    @endforeach
+                </ol>
+                <span>Total price: {{ $user->doctor->sponsorships->sum('price') }}€</span>
+            </section>
+        @endif
 
         @if (isset($user->doctor))
             {{-- Review Section  --}}
