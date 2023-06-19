@@ -39,4 +39,9 @@ class Doctor extends Model
     {
         return $this->belongsToMany(Vote::class);
     }
+
+    public function sponsorships(): BelongsToMany
+    {
+        return $this->belongsToMany(Sponsorship::class);
+    }
 }
