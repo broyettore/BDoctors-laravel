@@ -65,10 +65,10 @@
                                 </div>
                                 <div class="offcanvas-body">
                                     @foreach ($user->doctor->messagges as $messagge)
-                                        <div class="card">
+                                        <div class="card mb-2">
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    {{ $messagge->first_name }}{{ $messagge->last_name }}</h5>
+                                                    {{ $messagge->first_name }} {{ $messagge->last_name }}</h5>
                                                 <p class="mb-1">{{ $messagge->body }}</p>
                                                 <span>{{ $messagge->email }}</span>
                                             </div>
