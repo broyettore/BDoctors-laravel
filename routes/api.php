@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //ALL DOCTORS
 Route::get('doctors', [DoctorController::class, 'index']);
+
+//SEARCH BY SPECIALISATION
+Route::get('doctors/{searchQuery}', [DoctorController::class, 'searchDoctor']);
