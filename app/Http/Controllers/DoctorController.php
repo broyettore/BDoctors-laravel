@@ -34,7 +34,7 @@ class DoctorController extends Controller
     public function store(StoreDoctorRequest $request)
     {
         $data = $request->validated();
-        
+
         $newDoctor = new Doctor();
         $newDoctor->fill($data);
 
@@ -54,7 +54,7 @@ class DoctorController extends Controller
             $newDoctor->specialisations()->sync($data['specialisations']);
         }
 
-        return to_route('admin.user.show', $newDoctor->id);
+        return to_route('admin.user.show', $newDoctor->user->id);
     }
 
     /**
@@ -70,8 +70,14 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        $specialisations = Specialisation::all();
-        return view('admin.doctor.edit', compact("doctor", "specialisations"));
+        $user = $doctor->user;
+
+        if (auth()->user() == $user) {
+            $specialisations = Specialisation::all();
+            return view('admin.doctor.edit', compact("doctor", "specialisations"));
+        }
+
+        return redirect('/admin');
     }
 
     /**
