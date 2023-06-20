@@ -19,7 +19,7 @@ class DoctorController extends Controller
 
     public function searchDoctor($searchQuery) {
 
-        $doctors = Doctor::whereRelation('specialisations', 'name', '=', $searchQuery)->get();
+        $doctors = Doctor::whereRelation('specialisations', 'name', '=', $searchQuery)->with("specialisations", "user", "reviews", "votes")->get();
         return response()->json([
             'success' => true,
             'results' => $doctors
