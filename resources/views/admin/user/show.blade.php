@@ -3,44 +3,37 @@
 @section('content')
     <div class="container py-3">
         <div class="ms-use d-md-flex justify-content-between align-items-start mb-3">
-            <div class="left mb-3">
-                @if (isset($user->doctor->user_id))
-                    <h1 class="fs-1">User #{{ $user->id }} / Doctor #{{ $user->doctor->user_id }}</h1>
-                @else
-                    <h1 class="fs-1">User #{{ $user->id }}</h1>
-                @endif
+            <div class="left d-flex flex-column">
+                <div>
+                    <h1 class="fs-1">Welcome, Dott. {{ $user->first_name . ' ' . $user->last_name }}</h1>
+                </div>
 
-                {{-- Personal Datas --}}
-                <ul class="my-3">
-                    <li>First name: {{ $user->first_name }}</li>
-                    <li>Last Name: {{ $user->last_name }}</li>
-                    <li>Email: {{ $user->email }}</li>
-                </ul>
-                {{-- /Personal Datas --}}
-
-                {{-- Professional Datas --}}
-                @if (isset($user->doctor))
-                    <ul class="mb-3">
-                        <li>Address: {{ $user->doctor->address }}</li>
-                        <li>Phone Number: {{ $user->doctor->phone_number }}</li>
-                        <li>Services: {{ $user->doctor->services }}.</li>
-                        @if (isset($user->doctor->specialisations))
-                            <li>
-                                Specialisation:
-                                @foreach ($user->doctor->specialisations as $specialisation)
-                                    @if ($loop->last)
-                                        <span>{{ $specialisation->name }}</span>.
-                                    @else
-                                        <span>{{ $specialisation->name }}</span>,
-                                    @endif
-                                @endforeach
-                            </li>
-                        @endif
+                <div>
+                    {{-- User info --}}
+                    <ul>
+                        <li>Email: {{ $user->email }}</li>
+                        @if (isset($user->doctor))
+                            <li>Address: {{ $user->doctor->address }}</li>
+                            <li>Phone Number: {{ $user->doctor->phone_number }}</li>
+                            <li>Services: {{ $user->doctor->services }}.</li>
+                            @if (isset($user->doctor->specialisations))
+                                <li>
+                                    Specialisation:
+                                    @foreach ($user->doctor->specialisations as $specialisation)
+                                        @if ($loop->last)
+                                            <span>{{ $specialisation->name }}</span>.
+                                        @else
+                                            <span>{{ $specialisation->name }}</span>,
+                                        @endif
+                                    @endforeach
+                                </li>
+                            @endif
                     </ul>
-                @endif
-                {{-- /Professional Datas --}}
+                    @endif
+                    {{-- /User info --}}
+                </div>
 
-                <div class="btn-nav d-flex align-items-start mb-4">
+                <div class="btn-nav d-flex align-items-start mt-4">
                     @if ($user->doctor)
                         {{-- Nav Buttons --}}
                         <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary me-2">Edit
