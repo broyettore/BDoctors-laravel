@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             VoteSeeder::class,
             SpecialisationSeeder::class,
             SponsorshipSeeder::class,
-            DoctorSpecialisationSeeder::class
+            DoctorSpecialisationSeeder::class,
+            DoctorVoteSeeder::class
         ]);
     }
 }
