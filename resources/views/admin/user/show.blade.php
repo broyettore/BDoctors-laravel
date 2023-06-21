@@ -83,7 +83,11 @@
             {{-- Doctor Photo  --}}
             @if (isset($user->doctor))
                 <div class="d-none d-md-block right photo-ctn mb-3">
-                    <img src=" {{ asset('storage/' . $user->doctor->photo) }}" alt="{{ $user->doctor->last_name }}">
+                    @if ($user->doctor->photo)
+                        <img src=" {{ asset('storage/' . $user->doctor->photo) }}" alt="{{ $user->doctor->last_name }}">
+                    @else
+                        <img src="/avatar-medico-edited.jpg" alt="{{ $user->doctor->last_name }}">
+                    @endif
                 </div>
             @endif
         </div>

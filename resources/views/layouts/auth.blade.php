@@ -21,8 +21,6 @@
 
 <body>
     <div id="app">
-
-
         <nav class="navbar navbar-expand-md ms-nav">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
