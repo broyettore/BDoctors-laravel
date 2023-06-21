@@ -52,30 +52,30 @@ class UserSeeder extends Seeder
             ],
             //  5 utenti
             [
-            "nome" => "Martina",
-            "cognome" => "Romano",
+            "first_name" => "Martina",
+            "last_name" => "Romano",
             "email" => "martina.romano@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "first_name" => "Sara",
+            "first_name" => "Chiara",
             "last_name" => "Bianchi",
-            "email" => "sara.bianchi@example.com",
+            "email" => "chiara.bianchi@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "first_name" => "Luca",
+            "first_name" => "Ciro",
             "last_name" => "Esposito",
-            "email" => "luca.esposito@example.com",
+            "email" => "ciro.esposito@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "first_name" => "Martina",
+            "first_name" => "Simona",
             "last_name" => "Conti",
-            "email" => "martina.conti@example.com",
+            "email" => "simona.conti@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
@@ -152,152 +152,152 @@ class UserSeeder extends Seeder
             "password" => "12345678"
             ],
             [
-            "nome" => "Marco",
-            "cognome" => "Rossi",
+            "first_name" => "Marco",
+            "last_name" => "Rossi",
             "email" => "marco.rossi@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             //  20
             [
-            "nome" => "Sara",
-            "cognome" => "Bianchi",
+            "first_name" => "Sara",
+            "last_name" => "Bianchi",
             "email" => "sara.bianchi@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Luca",
-            "cognome" => "Esposito",
+            "first_name" => "Luca",
+            "last_name" => "Esposito",
             "email" => "luca.esposito@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Martina",
-            "cognome" => "Conti",
+            "first_name" => "Martina",
+            "last_name" => "Conti",
             "email" => "martina.conti@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Alessio",
-            "cognome" => "Romano",
-            "email" => "alessio.romano@example.com",
+            "first_name" => "Francesco",
+            "last_name" => "Romano",
+            "email" => "francesco.romano@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Valentina",
-            "cognome" => "Russo",
-            "email" => "valentina.russo@example.com",
+            "first_name" => "Cristina",
+            "last_name" => "Russo",
+            "email" => "cristina.russo@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             //  25
             [
-            "nome" => "Matteo",
-            "cognome" => "Fiore",
-            "email" => "matteo.fiore@example.com",
+            "first_name" => "Giuseppe",
+            "last_name" => "Fiore",
+            "email" => "giuseppe.fiore@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Giulia",
-            "cognome" => "Ferri",
-            "email" => "giulia.ferri@example.com",
+            "first_name" => "Lucia",
+            "last_name" => "Ferri",
+            "email" => "lucia.ferri@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Simone",
-            "cognome" => "De Luca",
-            "email" => "simone.deluca@example.com",
+            "first_name" => "Alessandro",
+            "last_name" => "De Luca",
+            "email" => "alessandro.deluca@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Chiara",
-            "cognome" => "Moretti",
-            "email" => "chiara.moretti@example.com",
+            "first_name" => "Paola",
+            "last_name" => "Moretti",
+            "email" => "paola.moretti@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Giovanni",
-            "cognome" => "Santoro",
-            "email" => "giovanni.santoro@example.com",
+            "first_name" => "Enrico",
+            "last_name" => "Santoro",
+            "email" => "enrico.santoro@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             //  30
             [
-            "nome" => "Laura",
-            "cognome" => "Rizzo",
-            "email" => "laura.rizzo@example.com",
+            "first_name" => "Lidia",
+            "last_name" => "Rizzo",
+            "email" => "lidia.rizzo@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Davide",
-            "cognome" => "Pellegrini",
-            "email" => "davide.pellegrini@example.com",
+            "first_name" => "Andrea",
+            "last_name" => "Pellegrini",
+            "email" => "andrea.pellegrini@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Anna",
-            "cognome" => "Barbieri",
-            "email" => "anna.barbieri@example.com",
+            "first_name" => "Rosalia",
+            "last_name" => "Barbieri",
+            "email" => "rosalia.barbieri@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Francesco",
-            "cognome" => "Gentile",
+            "first_name" => "Francesco",
+            "last_name" => "Gentile",
             "email" => "francesco.gentile@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Eleonora",
-            "cognome" => "De Rosa",
+            "first_name" => "Eleonora",
+            "last_name" => "De Rosa",
             "email" => "eleonora.derosa@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             //  35
             [
-            "nome" => "Giorgio",
-            "cognome" => "Ferrari",
+            "first_name" => "Giorgio",
+            "last_name" => "Ferrari",
             "email" => "giorgio.ferrari@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Federica",
-            "cognome" => "Lombardi",
+            "first_name" => "Federica",
+            "last_name" => "Lombardi",
             "email" => "federica.lombardi@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Stefano",
-            "cognome" => "Marini",
+            "first_name" => "Stefano",
+            "last_name" => "Marini",
             "email" => "stefano.marini@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Elena",
-            "cognome" => "Costa",
+            "first_name" => "Elena",
+            "last_name" => "Costa",
             "email" => "elena.costa@example.com",
             "is_admin" => 0,
             "password" => "12345678"
             ],
             [
-            "nome" => "Alessandro",
-            "cognome" => "Caruso",
+            "first_name" => "Alessandro",
+            "last_name" => "Caruso",
             "email" => "alessandro.caruso@example.com",
             "is_admin" => 0,
             "password" => "12345678"
