@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:5173/">Vai a BDoctors</a>
+                        </li>
                         @if (Auth::check())
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ Auth::user()->is_admin ? 'Dashboard' : 'Profile' }}</a>
