@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             ReviewSeeder::class,
             VoteSeeder::class,
             SpecialisationSeeder::class,
-            SponsorshipSeeder::class
+            SponsorshipSeeder::class,
+            DoctorSpecialisationSeeder::class
         ]);
     }
 }
