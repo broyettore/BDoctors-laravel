@@ -21,7 +21,6 @@ sponsorshipOptions.forEach(sponsorship => {
     });
 });
 
-
 if (document.querySelector(".edit-doctor-form")) {
     const deleteCvLabel = document.querySelector('.delete-cv-success');
     const deletePhotoLabel = document.querySelector('.delete-photo-success');
@@ -75,4 +74,16 @@ if (document.querySelector(".edit-doctor-form")) {
 function hideElement(element1, element2) {
     element1.classList.remove('d-none');
     element2.classList.add('d-none');
+}
+
+const photoInput = document.getElementById('photo');
+photoInput.addEventListener('change', showPreview);
+
+function showPreview(event) {
+    if (event.target.files.length > 0) {
+        const src = URL.createObjectURL(event.target.files[0]);
+        const preview = document.getElementById("file-photo-preview");
+        preview.src = src;
+        preview.style.display = "block";
+    }
 }

@@ -118,7 +118,7 @@ class DoctorController extends Controller
 
         $doctor->update($data);
 
-        return to_route('admin.user.show', $doctor->id);
+        return to_route('admin.user.show', $doctor->user->id);
     }
 
     /**
