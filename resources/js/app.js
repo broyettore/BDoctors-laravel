@@ -45,5 +45,18 @@ function changeLink(event) {
         const href = URL.createObjectURL(event.target.files[0]);
         const link = document.getElementById("file-cv-link");
         link.href = href;
-    }
+        preview.style.display = "inline-block";
+    } 
 }
+
+/* show link CV */
+
+cvInput.addEventListener('change', function() {
+    if (cvInput.value) {
+        const link = document.getElementById("file-cv-link");
+        link.classList.remove('d-none');
+    }
+});
+
+
+
