@@ -23,13 +23,15 @@ class UpdateDoctorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "cv" => "file|mimes:pdf",
+            "cv" => "nullable|file|mimes:pdf",
             "address" => "required|max:100",
             "photo" => "image",
             "phone_number" => "required|max:20",
             "services" => "required",
             "user_id" => ValidationRule::exists('users', 'id'),
-            "specialisations" => "exists:specialisations,id"
+            "specialisations" => "exists:specialisations,id",
+            'remove-photo' => 'nullable',
+            'remove-cv' => 'nullable'
         ];
     }
 }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->text("cv");
+            $table->text("cv")->nullable();
             $table->string("address");
-            $table->text("photo");
+            $table->text("photo")->nullable();
             $table->string("phone_number");
             $table->string("services");
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->unique();
