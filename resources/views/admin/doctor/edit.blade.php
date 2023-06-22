@@ -53,10 +53,10 @@
                 </div>
             </div>
 
-            <div class="id="photo-container" class="img-thumbnail  mb-3">
+            <div class="mb-3">
                 <label for="photo" class="form-label">Photo</label>
 
-                <div class="d-flex align-items-center">
+                <div class="d-flex">
                     <div>
                         <input type="text" class="d-none delete-photo-input" name="remove-photo">
                         <input type="file" class="form-control d-none new-photo-input" id="photo" name="photo">
@@ -69,12 +69,13 @@
                         <label for="" class="text-success ms-2 delete-photo-success d-none">Photo successfully
                             removed</label>
                     @endif
-                <div class="preview pt-3">
-                    <img class="d-block" id="file-photo-preview"
-                        @if ($doctor->photo) src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->photo }}" @endif>
-                        </div>
-                 </div>
-               
+                </div>
+
+                    <div class="pt-3">
+                        <img class="d-block preview" id="file-photo-preview"
+                            @if ($doctor->photo) src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->photo }}" @endif>
+                    </div>
+
             </div>
 
             @if ($errors->any())
