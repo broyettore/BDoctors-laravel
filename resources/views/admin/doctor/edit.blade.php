@@ -38,10 +38,13 @@
                     value="{{ old('cv', $doctor->cv) }}">
             </div>
 
-            <div class="mb-3">
-                <label for="photo" class="form-label">Photo</label>
-                <input type="file" class="form-control" id="photo" name="photo"
-                    value="{{ old('photo', $doctor->photo) }}">
+            <label for="photo" class="form-label">Photo</label>
+            <div id="photo-container" class="img-thumbnail mb-3">
+                <input type="file" class="form-control" id="photo" name="photo">
+                <div class="preview pt-3">
+                    <img class="d-block" id="file-photo-preview"
+                        @if ($doctor->photo) src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->photo }}" @endif>
+                </div>
             </div>
 
             @if ($errors->any())

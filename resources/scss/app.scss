@@ -141,6 +141,14 @@ h6 {
     color: white;
 }
 
+/********** Edit **************/
+
+#photo-container{
+    width: 400px;
+    img {
+        width: 100%;
+    }
+}
 /************** Manual media queries ***************/
 
 @media screen and (min-width: 768px) {
