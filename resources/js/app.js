@@ -21,6 +21,8 @@ sponsorshipOptions.forEach(sponsorship => {
     });
 });
 
+/* photo preview */
+
 const photoInput = document.getElementById('photo');
 photoInput.addEventListener('change', showPreview);
 
@@ -30,5 +32,18 @@ function showPreview(event) {
         const preview = document.getElementById("file-photo-preview");
         preview.src = src;
         preview.style.display = "block";
+    }
+}
+
+/* change link CV */
+
+const cvInput = document.getElementById('cv');
+cvInput.addEventListener('change', changeLink);
+
+function changeLink(event) {
+    if (event.target.files.length > 0) {
+        const href = URL.createObjectURL(event.target.files[0]);
+        const link = document.getElementById("file-cv-link");
+        link.href = href;
     }
 }

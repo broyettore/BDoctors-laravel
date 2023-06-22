@@ -33,9 +33,11 @@
             </div>
 
             <div class="mb-3">
-                <label for="cv" class="form-label">Cv</label>
-                <input type="file" class="form-control" id="cv" name="cv"
-                    value="{{ old('cv', $doctor->cv) }}">
+                <label for="cv" class="form-label">CV</label>
+                <input type="file" class="form-control" id="cv" name="cv">
+                @if ($doctor->cv)<a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
+                    Open your CV
+                </a>@endif
             </div>
 
             <label for="photo" class="form-label">Photo</label>
