@@ -85,13 +85,13 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
+        // dd($request);
         $data = $request->validated();
+        // dd($data);
 
-        if (isset($data['photo'])) {
-            if ($doctor->photo) {
-                Storage::delete($doctor->photo);
-            }
-            $doctor->photo = Storage::put('uploads', $data['photo']);
+        if (isset($data['remove-cv'])) {
+            Storage::delete($doctor->cv);
+            $doctor->cv = null;
         }
 
         if (isset($data['cv'])) {
@@ -101,6 +101,17 @@ class DoctorController extends Controller
             $doctor->cv = Storage::put('uploads', $data['cv']);
         }
 
+        if (isset($data['remove-photo'])) {
+            Storage::delete($doctor->photo);
+            $doctor->photo = null;
+        }
+
+        if (isset($data['photo'])) {
+            if ($doctor->photo) {
+                Storage::delete($doctor->photo);
+            }
+            $doctor->photo = Storage::put('uploads', $data['photo']);
+        }
 
         $specialisations = isset($data['specialisations']) ? $data['specialisations'] : [];
         $doctor->specialisations()->sync($specialisations);

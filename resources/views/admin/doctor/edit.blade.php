@@ -10,7 +10,8 @@
             @include('partials.errors')
         </div>
 
-        <form action="{{ route('admin.doctor.update', $doctor->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.doctor.update', $doctor->id) }}" method="post" enctype="multipart/form-data"
+            class="edit-doctor-form">
             @csrf
             @method('PUT')
 
@@ -33,20 +34,52 @@
             </div>
 
             <div class="mb-3">
-                <label for="cv" class="form-label">CV</label>
-                <input type="file" class="form-control" id="cv" name="cv">
-                @if ($doctor->cv)<a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
+                <label for="cv" class="form-label">Cv</label>
+
+                <div class="d-flex align-items-center">
+                    <div>
+                        <input type="text" class="d-none delete-cv-input" name="remove-cv">
+                        <input type="file" class="form-control d-none new-cv-input" id="cv" name="cv"
+                            value="{{ old('cv', $doctor->cv) }}">
+                        <label for="cv" class="btn btn-warning select-cv-label">Select new CV</label>
+                    </div>
+                    @if ($doctor->cv)
+                        <div class="ms-3">
+                            <button type="button" class="btn btn-danger delete-cv-btn">Delete current CV</button>
+                        </div>
+                        <label for="" class="text-success ms-2 delete-cv-success d-none">CV successfully
+                            removed</label>
+                    @endif
+                </div>
+                
+                <a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
                     Open your CV
-                </a>@endif
+                </a>
             </div>
 
-            <label for="photo" class="form-label">Photo</label>
-            <div id="photo-container" class="img-thumbnail mb-3">
-                <input type="file" class="form-control" id="photo" name="photo">
-                <div class="preview pt-3">
-                    <img class="d-block" id="file-photo-preview"
-                        @if ($doctor->photo) src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->photo }}" @endif>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Photo</label>
+
+                <div class="d-flex">
+                    <div>
+                        <input type="text" class="d-none delete-photo-input" name="remove-photo">
+                        <input type="file" class="form-control d-none new-photo-input" id="photo" name="photo">
+                        <label for="photo" class="btn btn-warning select-photo-label">Select new photo</label>
+                    </div>
+                    @if ($doctor->photo)
+                        <div class="ms-3">
+                            <button type="button" class="btn btn-danger delete-photo-btn">Delete current Photo</button>
+                        </div>
+                        <label for="" class="text-success ms-2 delete-photo-success d-none">Photo successfully
+                            removed</label>
+                    @endif
                 </div>
+
+                    <div class="pt-3">
+                        <img class="d-block preview" id="file-photo-preview"
+                            @if ($doctor->photo) src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->photo }}" @endif>
+                    </div>
+
             </div>
 
             @if ($errors->any())

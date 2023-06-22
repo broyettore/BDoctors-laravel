@@ -40,8 +40,11 @@
                             Doctor
                             Profile
                         </a>
-                        <a href="{{ asset('storage/' . $user->doctor->cv) }}" download="cv.pdf"
-                            class="btn ms-btn-primary me-2">Download Cv</a>
+                        @if ($user->doctor->cv) 
+                            <a href="{{ asset('storage/' . $user->doctor->cv) }}" download="cv.pdf"
+                                class="btn ms-btn-primary me-2">Download Cv</a>
+                        @endif
+
                         <button class="btn ms-btn-primary mb-3" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                             Messagges
