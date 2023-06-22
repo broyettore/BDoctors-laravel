@@ -51,6 +51,10 @@
                             removed</label>
                     @endif
                 </div>
+                
+                <a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
+                    Open your CV
+                </a>
             </div>
 
             <div class="mb-3">
@@ -105,3 +109,11 @@
 
     </div>
 @endsection
+
+
+
+
+
+
+
+

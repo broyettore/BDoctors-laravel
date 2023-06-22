@@ -29,8 +29,11 @@
             </div>
 
             <div class="mb-3">
-                <label for="cv" class="form-label">Cv</label>
-                <input type="file" class="form-control" id="cv" name="cv" value="{{ old('cv') }}">
+                <label for="cv" class="form-label">CV</label>
+                <input type="file" class="form-control" id="cv" name="cv">
+                <a target="_blank" id="file-cv-link" class="btn btn-primary mt-1 d-none" href="{{ asset('storage/' . $doctor->cv) }}">
+                    Open your CV
+                </a>
             </div>
 
             <label for="photo" class="form-label">Photo</label>
@@ -57,3 +60,4 @@
 
     </div>
 @endsection
+
