@@ -75,7 +75,7 @@
                         @endif
                         {{-- /offcanvas per la visualizazzione dei messaggi ricevuti --}}
                     @else
-                        <a href="{{ route('admin.doctor.create', ['id' => $user->id]) }}"
+                        <a href="{{ route('admin.doctor.create') }}"
                             class="btn ms-btn-primary me-2">Create Doctor
                             Profile
                         </a>

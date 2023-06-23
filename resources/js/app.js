@@ -38,7 +38,7 @@ if (document.querySelector(".edit-doctor-form")) {
     const selectPhotoLabel = document.querySelector('.select-photo-label');
 
 
-    newCVInput.addEventListener('change', function() {
+    newCVInput.addEventListener('change', function () {
 
         if (newCVInput.value) {
             selectCVLabel.classList.remove('bg-warning');
@@ -47,7 +47,7 @@ if (document.querySelector(".edit-doctor-form")) {
         }
     });
 
-    newPhotoInput.addEventListener('change', function() {
+    newPhotoInput.addEventListener('change', function () {
 
         if (newPhotoInput.value) {
             selectPhotoLabel.classList.remove('bg-warning');
@@ -94,6 +94,7 @@ function showPreview(event) {
 
 /* change link CV */
 
+
 const cvInput = document.getElementById('cv');
 cvInput.addEventListener('change', changeLink);
 
@@ -103,17 +104,24 @@ function changeLink(event) {
         const link = document.getElementById("file-cv-link");
         link.href = href;
         preview.style.display = "inline-block";
-    } 
+    }
 }
 
 /* show link CV */
 
-cvInput.addEventListener('change', function() {
+cvInput.addEventListener('change', function () {
     if (cvInput.value) {
         const link = document.getElementById("file-cv-link");
         link.classList.remove('d-none');
     }
 });
+if (document.getElementById('delete-input')) {
+    /* hide cv input on delete */
+    const deleteCvInput = document.getElementById('delete-input');
+    deleteCvInput.addEventListener('click', function () {
 
+        const link = document.getElementById("file-cv-link");
+        link.classList.add('d-none');
 
-
+    });
+}
