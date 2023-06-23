@@ -45,16 +45,18 @@
                     </div>
                     @if ($doctor->cv)
                         <div class="ms-3">
-                            <button type="button" class="btn btn-danger delete-cv-btn">Delete current CV</button>
+                            <button type="button" id="delete-input" class="btn btn-danger delete-cv-btn">Delete current CV</button>
                         </div>
                         <label for="" class="text-success ms-2 delete-cv-success d-none">CV successfully
                             removed</label>
                     @endif
                 </div>
-                
-                <a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
+                @if ($doctor->cv != null)
+                   <a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
                     Open your CV
-                </a>
+                </a> 
+                @endif
+                
             </div>
 
             <div class="mb-3">
@@ -109,11 +111,3 @@
 
     </div>
 @endsection
-
-
-
-
-
-
-
-
