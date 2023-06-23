@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="container py-3">
-        <h1 class="mb-3">Fill the form:</h1>
+        <h1 class="mb-3">Modifica dettagli medici: </h1>
 
         <div>
             @include('partials.errors')
