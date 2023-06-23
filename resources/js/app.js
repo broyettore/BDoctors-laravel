@@ -94,7 +94,7 @@ function showPreview(event) {
 
 /* change link CV */
 
-const deleteCvInput = document.getElementById('delete-input');
+
 const cvInput = document.getElementById('cv');
 cvInput.addEventListener('change', changeLink);
 
@@ -115,12 +115,13 @@ cvInput.addEventListener('change', function () {
         link.classList.remove('d-none');
     }
 });
+if (document.getElementById('delete-input')) {
+    /* hide cv input on delete */
+    const deleteCvInput = document.getElementById('delete-input');
+    deleteCvInput.addEventListener('click', function () {
 
-/* hide cv input on delete */
+        const link = document.getElementById("file-cv-link");
+        link.classList.add('d-none');
 
-deleteCvInput.addEventListener('click', function () {
-
-    const link = document.getElementById("file-cv-link");
-    link.classList.add('d-none');
-
-});
+    });
+}
