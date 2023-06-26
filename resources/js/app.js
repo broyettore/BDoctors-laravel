@@ -6,6 +6,7 @@ import.meta.glob([
     '../img/**'
 ]);
 
+
 const sponsorshipBoxes = document.querySelectorAll('.sponsorship-box');
 const sponsorshipOptions = document.querySelectorAll('.sponsorship-option');
 const buyButton = document.querySelector('.buy-sponsorship');
@@ -20,6 +21,7 @@ sponsorshipOptions.forEach(sponsorship => {
         sponsorship.parentElement.classList.add('sponsorship-selected');
     });
 });
+
 
 
 /* photo preview */
