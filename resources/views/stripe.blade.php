@@ -77,7 +77,7 @@
 
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <input type="text" class="d-none" value="{{$sponsorship->id}}" name="sponsorship">
+                                    <input type="text" class="hidden" value="{{$sponsorship->id}}" name="sponsorship">
                                     <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now
                                         ({{ $sponsorship->price }})</button>
                                 </div>
