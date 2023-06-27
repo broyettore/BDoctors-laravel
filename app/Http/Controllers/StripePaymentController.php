@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sponsorship;
+use Carbon\Carbon;
+use DateInterval;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -45,13 +48,29 @@ class StripePaymentController extends Controller
         ]);
 
         $user = auth()->user();
-        
-        $end_date = date("Y-m-d H:i:s", strtotime("+{$sponsorship->duration} hours"));
+
+        $sponsorships = $user->doctor->sponsorships;
+        $activeSponsorships = [];
+
+        foreach ($sponsorships as $value) {
+            array_push($activeSponsorships, $value->pivot->end_date);
+        }
+
+        if (empty($activeSponsorships)) {
+            $end_date = date('Y-m-d H:i:s', strtotime("+{$sponsorship->duration} hours"));
+        } else {
+            $last_sponsorship = max($activeSponsorships);
+            $converted = date('Y-m-d H:i:s', strtotime($last_sponsorship));
+            $date = new DateTime($converted);
+            // dd($date);
+            $end_date = $date->add(new DateInterval("PT{$sponsorship->duration}H"));
+        }
+
         $syncData = array_fill_keys([$sponsorshipInput], ['end_date' => $end_date]);
 
         $user->doctor->sponsorships()->attach($syncData);
 
-        return redirect('/admin')->with('user');  
+        return redirect('/admin')->with('user');
 
         return view('admin.user.show', compact('user'));
     }
