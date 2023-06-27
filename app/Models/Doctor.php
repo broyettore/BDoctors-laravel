@@ -45,6 +45,6 @@ class Doctor extends Model
     {
         return $this->belongsToMany(Sponsorship::class)
             ->withPivot(["end_date"])
-            ->orderByPivot('end_date', 'asc');;
+            ->orderByPivot('end_date', 'asc');
     }
 }

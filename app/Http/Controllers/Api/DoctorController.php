@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Sponsorship;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class DoctorController extends Controller
 
     public function searchDoctor($searchQuery) {
 
-        $doctors = Doctor::whereRelation('specialisations', 'name', '=', $searchQuery)->with("specialisations", "user", "reviews", "votes")->get();
+        $doctors = Doctor::whereRelation('specialisations', 'name', '=', $searchQuery)->with("specialisations", "user", "reviews", "votes", "sponsorships")->get();
         return response()->json([
             'success' => true,
             'results' => $doctors
@@ -36,3 +37,7 @@ class DoctorController extends Controller
         ]);
     }
 }
+
+
+
+
