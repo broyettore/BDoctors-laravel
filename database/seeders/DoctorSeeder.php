@@ -337,6 +337,14 @@ class DoctorSeeder extends Seeder
                 'address' => 'Piazza San Marco, 20, Venezia, Veneto',
                 'services' => 'Visita nefrologica',
                 'phone_number' => '+39 09 2345678',
+            ],
+            [
+                "user_id" => 41,
+                "cv" => "",
+                "photo" => "",
+                'address' => 'Piazza San Marco, 20, Venezia, Veneto',
+                'services' => 'Visita nefrologica',
+                'phone_number' => '+39 09 2345678',
             ]
         ];
 
