@@ -34,30 +34,44 @@ h6 {
     padding: 0;
 }
 
+.ms-login-head,
+.ms-register-head {
+    background-color: #3b66a7;
+    color: #dfdcd4;
+    border-bottom: 1px solid #3b66a7;
+}
+
+.ms-login-card,
+.ms-register {
+    border: 1px solid #3b66a7;
+}
+
 /********** Button Styling **************/
 
 .ms-btn-primary {
-    background-color: #98eecc;
+    background-color: #3b66a7;
+    color: #dfdcd4;
 
     &:hover {
-        background-color: #00dfa2;
+        background-color: darken($color: #3b66a7, $amount: 10%);
         color: #fff;
         transform: scale(1.1);
         transition: ease-in-out 0.3s;
     }
 }
 
-.see-profile {
-    color: #000;
-
-    &:hover {
-        color: #00dfa2;
-        transition: ease 0.4s;
-    }
-}
 
 .valutation-star {
-    color: #00dfa2;
+    color: #3b66a7;
+}
+
+.ms-btn-burger {
+    border: 0;
+
+    &:focus {
+        background-color: darken($color: #dfdcd4, $amount: 5%);
+        box-shadow: 0px 1px 6px 0px #dfdcd4;
+    }
 }
 
 /********** Photo *********/
@@ -76,17 +90,30 @@ h6 {
 
 /********** welcome **************/
 .ms-nav {
-    background-color: #00dfa2;
-
-    a:hover {
-        color: #fff;
+    background-color: #3b66a7;
+    
+    a {
+        color:  #dfdcd4;
     }
 }
 
 .ms-drop {
-    a:hover {
-        background-color: #00dfa2;
-    }
+    background-color: #3b66a7;
+    padding: 5px;
+
+        a {
+            box-shadow: inset 0 0 0 0 #dfdcd4;
+            margin: 0 -.25rem;
+            padding: .25rem;
+            transition: color .3s ease-in-out, box-shadow .5s ease-in-out;
+            color: #dfdcd4;
+            
+            &:hover {
+                box-shadow: inset 510px 0 0 0 darken($color: #3b66a7, $amount: 20%);
+                color: #dfdcd4;
+            }
+        }
+    
 }
 
 .banner-ctn {
@@ -99,7 +126,7 @@ h6 {
     .welcome_banner {
         height: 400px;
         width: 100%;
-        background-image: url(/resources/img/Doctors-Physicians-silhouette.webp);
+        background-image: url(/resources/img/doctor-alt-modificato.jpg);
         background-size: cover;
         background-position: 50% 20%;
         background-repeat: no-repeat;
@@ -112,14 +139,15 @@ h6 {
 }
 
 .ms-option {
-    border: 1px solid #00dfa2;
+    border: 1px solid #3b66a7;
     border-radius: 20px;
     padding: 20px;
 
     &:hover {
         cursor: pointer;
         transform: translateY(-6px);
-        background-color: #00dfa2;
+        background-color: #3b66a7;
+        color: #dfdcd4;
         transition: ease-in-out 0.3s;
     }
 }
@@ -131,14 +159,18 @@ h6 {
 }
 /********** Sponsorship **************/
 
+.ms-btn-secondary {
+    text-align: left;
+}
+
 .sponsorship-box {
     cursor: pointer;
     user-select: none;
 }
 
 .sponsorship-selected {
-    background-color: #00dfa2;
-    color: white;
+    background-color: #3b66a7;
+    color: #dfdcd4;
 }
 
 /********** Edit **************/
@@ -170,19 +202,30 @@ h6 {
         align-items: center;
     
         .welcome_banner {
-            height: 400px;
             width: 48%;
-            background-image: url(/resources/img/Doctors-Physicians-silhouette.webp);
-            background-size: cover;
+            background-image: url(/resources/img/doctor-alt-modificato.jpg);
+            background-size: contain;
             background-position: 50% 20%;
             background-repeat: no-repeat;
             margin-bottom: 30px;
-    
         }
         
         .banner_right{
             text-align: left;
             width: 48%;
         }
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .banner-ctn {
+
+    
+        .welcome_banner {
+            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            background-color: #3b66a7;
+        }
+        
     }
 }

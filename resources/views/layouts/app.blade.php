@@ -25,7 +25,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     BDoctors
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler ms-btn-burger" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('admin.sponsorship.create') }}" class="btn bg-warning btn-primary nav-link">Buy sponsorship</a>
+                            <a href="{{ route('admin.sponsorship.create') }}" class="btn  ms-btn-secondary nav-link">Buy sponsorship</a>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
