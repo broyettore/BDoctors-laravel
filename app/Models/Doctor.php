@@ -44,6 +44,7 @@ class Doctor extends Model
     public function sponsorships(): BelongsToMany
     {
         return $this->belongsToMany(Sponsorship::class)
-            ->withPivot(["end_date"]);;
+            ->withPivot(["end_date"])
+            ->orderByPivot('end_date', 'asc');;
     }
 }
