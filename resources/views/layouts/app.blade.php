@@ -15,7 +15,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Scripts -->
+    
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 
 <body>
@@ -69,7 +71,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('admin.sponsorship.create') }}" class="btn  ms-btn-secondary nav-link">Buy sponsorship</a>
+                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Buy sponsorship</a>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

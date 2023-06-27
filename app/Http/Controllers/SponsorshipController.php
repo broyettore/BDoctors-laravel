@@ -12,9 +12,12 @@ class SponsorshipController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $sponsorships = Sponsorship::all();
+        $selectedValue = $request->input('sponsorship');
+
+        return view('admin.sponsorship.index', compact('sponsorships', 'selectedValue'));
     }
 
     /**

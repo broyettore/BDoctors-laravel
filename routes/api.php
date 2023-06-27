@@ -28,3 +28,6 @@ Route::get('specialisations', [SpecialisationController::class, 'index']);
 
 //SEARCH BY SPECIALISATION
 Route::get('doctors/{searchQuery}', [DoctorController::class, 'searchDoctor']);
+
+//Fetch all sponsored doctors
+Route::get('doctor/sponsored', [DoctorController::class, 'sponsoredDoctors']);
