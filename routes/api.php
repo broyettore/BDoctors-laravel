@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\DoctorController;
+use App\Http\Controllers\Api\SpecialisationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //ALL DOCTORS
 Route::get('doctors', [DoctorController::class, 'index']);
+
+//ALL SPECIALISATIONS
+Route::get('specialisations', [SpecialisationController::class, 'index']);
 
 //SEARCH BY SPECIALISATION
 Route::get('doctors/{searchQuery}', [DoctorController::class, 'searchDoctor']);
