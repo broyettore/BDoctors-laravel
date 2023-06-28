@@ -108,7 +108,8 @@
                         </li>
                     @endforeach
                 </ol>
-                <span>Total price: {{ $user->doctor->sponsorships->sum('price') }}€</span>
+                <span class="me-3">Total price: {{ $user->doctor->sponsorships->sum('price') }}€</span>
+                <span>Sponsorship end: {{ $user->doctor->sponsorships->last()->pivot->end_date }}</span>
             </section>
         @endif
 
