@@ -20,7 +20,7 @@
             <div class="col-md-7 col-md-offset-3">
                 <div class="panel panel-default credit-card-box">
                     <div class="panel-heading display-table">
-                        <h3 class="panel-title text-center"><strong>Payment Details</strong></h3>
+                        <h3 class="panel-title text-center"><strong>Dettagli Pagamento</strong></h3>
                     </div>
                     <div class="panel-body">
 
@@ -38,14 +38,14 @@
 
                             <div class='form-row row'>
                                 <div class='col-xs-12 form-group required'>
-                                    <label class='control-label'>Name on Card</label>
+                                    <label class='control-label'>Nome Carta</label>
                                     <input class='form-control' size='4' type='text'>
                                 </div>
                             </div>
 
                             <div class='form-row row'>
                                 <div class='col-xs-12 form-group card required'>
-                                    <label class='control-label'>Card Number</label>
+                                    <label class='control-label'>Numero Carta</label>
                                     <input autocomplete='off' class='form-control card-number' size='20'
                                         type='text'>
                                 </div>
@@ -58,12 +58,12 @@
                                         size='4' type='text'>
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                    <label class='control-label'>Expiration Month</label> <input
+                                    <label class='control-label'>Mese di Scadenza</label> <input
                                         class='form-control card-expiry-month' placeholder='MM' size='2'
                                         type='text'>
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                    <label class='control-label'>Expiration Year</label>
+                                    <label class='control-label'>Anno di Scadenza</label>
                                     <input class='form-control card-expiry-year' placeholder='YYYY' size='4'
                                         type='text'>
                                 </div>
@@ -71,14 +71,14 @@
 
                             <div class='form-row row'>
                                 <div class='col-md-12 error form-group hide'>
-                                    <div class='alert-danger alert'>Please correct the errors and try again.</div>
+                                    <div class='alert-danger alert'>Per favore correggi gli errori e riprova.</div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-xs-12">
                                     <input type="text" class="hidden" value="{{$sponsorship->id}}" name="sponsorship">
-                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Paga Adesso
                                         ({{ $sponsorship->price }})</button>
                                 </div>
                             </div>

@@ -6,7 +6,7 @@
     <div class="container py-3">
         <a href="{{ route('admin.specialisation.index') }}" class="btn ms-btn-primary mb-5">Home</a>
 
-        <h1 class="mb-3">Fill the form:</h1>
+        <h1 class="mb-3">Riempi i campi:</h1>
 
         <div>
             @include('partials.errors')
@@ -16,12 +16,12 @@
             @csrf
 
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" class="form-label">Descrizione</label>
                 <textarea class="form-control" name="description" id="description" style="resize: none;" rows="5">{{ old('description') }}</textarea>
             </div>
             <div class="mb-3">

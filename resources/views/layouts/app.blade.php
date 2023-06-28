@@ -45,11 +45,11 @@
                         </li>
                         @if (Auth::check())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ Auth::user()->is_admin ? 'Dashboard' : 'Profile' }}</a>
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ Auth::user()->is_admin ? 'Dashboard' : 'Profilo' }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"
-                                    href="{{ route('admin.specialisation.index') }}">{{ __('Specialisation') }}</a>
+                                    href="{{ route('admin.specialisation.index') }}">{{ __('Specializzazioni') }}</a>
                             </li>
                         @endif
                     </ul>
@@ -66,12 +66,12 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Buy sponsorship</a>
+                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Acquista sponsorship</a>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

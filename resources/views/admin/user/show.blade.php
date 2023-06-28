@@ -5,7 +5,7 @@
         <div class="ms-use d-md-flex justify-content-between align-items-start mb-3">
             <div class="left d-flex flex-column">
                 <div>
-                    <h1 class="fs-1">Welcome, Dott. {{ $user->first_name . ' ' . $user->last_name }}</h1>
+                    <h1 class="fs-1">Benvenuto, Dott. {{ $user->first_name . ' ' . $user->last_name }}</h1>
                 </div>
 
                 <div>
@@ -13,12 +13,12 @@
                     <ul>
                         <li>Email: {{ $user->email }}</li>
                         @if (isset($user->doctor))
-                            <li>Address: {{ $user->doctor->address }}</li>
-                            <li>Phone Number: {{ $user->doctor->phone_number }}</li>
-                            <li>Services: {{ $user->doctor->services }}.</li>
+                            <li>Indirizzo: {{ $user->doctor->address }}</li>
+                            <li>Telefono: {{ $user->doctor->phone_number }}</li>
+                            <li>Prestazioni: {{ $user->doctor->services }}.</li>
                             @if (isset($user->doctor->specialisations))
                                 <li>
-                                    Specialisation:
+                                    Specializzazione:
                                     @foreach ($user->doctor->specialisations as $specialisation)
                                         @if ($loop->last)
                                             <span>{{ $specialisation->name }}</span>.
@@ -36,18 +36,18 @@
                 <div class="btn-nav d-flex align-items-start mt-4">
                     @if ($user->doctor)
                         {{-- Nav Buttons --}}
-                        <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary me-2">Edit
-                            Doctor
-                            Profile
+                        <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary me-2">Modifica
+                            Medico
+                            Profilo
                         </a>
                         @if ($user->doctor->cv) 
                             <a href="{{ asset('storage/' . $user->doctor->cv) }}" download="cv.pdf"
-                                class="btn ms-btn-primary me-2">Download Cv</a>
+                                class="btn ms-btn-primary me-2">Scarica Cv</a>
                         @endif
 
                         <button class="btn ms-btn-primary mb-3" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                            Messagges
+                            Messaggi
                         </button>
                         {{-- /Nav Buttons --}}
                         {{-- offcanvas per la visualizazzione dei messaggi ricevuti --}}
@@ -55,7 +55,7 @@
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="staticBackdrop"
                                 aria-labelledby="staticBackdropLabel">
                                 <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="staticBackdropLabel">Messagges</h5>
+                                    <h5 class="offcanvas-title" id="staticBackdropLabel">Messaggi</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
@@ -76,8 +76,7 @@
                         {{-- /offcanvas per la visualizazzione dei messaggi ricevuti --}}
                     @else
                         <a href="{{ route('admin.doctor.create') }}"
-                            class="btn ms-btn-primary me-2">Create Doctor
-                            Profile
+                            class="btn ms-btn-primary me-2">Crea Profilo Medico
                         </a>
                     @endif
                 </div>
@@ -96,20 +95,20 @@
         </div>
         {{-- /Doctor Photo  --}}
 
-        @if (isset($user->doctor->sponsorships))
+        @if (count($user->doctor->sponsorships) > 0)
             <section class="mb-3">
                 <h3>Sponsorships:</h3>
                 <ol>
                     @foreach ($user->doctor->sponsorships as $sponsorship)
                         <li>
-                            <span>Type: {{ $sponsorship->name }} - </span>
-                            <span>Price: {{ $sponsorship->price }}€ </span>
-                            <span>End: date {{ date('d-m-Y', strtotime($sponsorship->pivot->end_date)) }}</span>
+                            <span>Tipo: {{ $sponsorship->name }} - </span>
+                            <span>Prezzo: {{ $sponsorship->price }}€ </span>
+                            <span>Fine: data {{ date('d-m-Y', strtotime($sponsorship->pivot->end_date)) }}</span>
                         </li>
                     @endforeach
                 </ol>
-                <span class="me-3">Total price: {{ $user->doctor->sponsorships->sum('price') }}€</span>
-                <span>Sponsorship end: {{ date('d-m-Y', strtotime($user->doctor->sponsorships->last()->pivot->end_date)) }}</span>
+                <span class="me-3">Prezzo Totale: {{ $user->doctor->sponsorships->sum('price') }}€</span>
+                <span>Fine Sponsorship: {{ date('d-m-Y', strtotime($user->doctor->sponsorships->last()->pivot->end_date)) }}</span>
                 {{-- date_format(strtotime($user->doctor->sponsorships->last()->pivot->end_date),"Y/m/d") --}}
             </section>
         @endif
@@ -120,7 +119,7 @@
                 <div class="col-12 col-md-7">
                     @if (isset($user->doctor->reviews))
                         <section>
-                            <h3>Your reviews ({{ count($user->doctor->reviews) }})</h3>
+                            <h3>Recensioni ({{ count($user->doctor->reviews) }})</h3>
                             <ul class="my-1">
                                 <hr>
                                 @foreach ($user->doctor->reviews as $review)
@@ -138,7 +137,7 @@
                 <div class="col-12 col-md-4">
                     @if (isset($user->doctor->votes))
                         <section>
-                            <h3>Your Rating ({{ count($user->doctor->votes) }})</h3>
+                            <h3>Voto ({{ count($user->doctor->votes) }})</h3>
                             <ul class="my-1">
                                 <hr>
                                 @foreach ($user->doctor->votes as $vote)

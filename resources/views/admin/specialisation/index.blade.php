@@ -8,17 +8,17 @@
             </div>
         @endif
         <div class="d-flex justify-content-between">
-            <h1 class="mb-3">Specialisations</h1>
+            <h1 class="mb-3">Specializzazioni</h1>
             <div>
-                <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Create</a>
+                <a class="btn ms-btn-primary" href="{{ route('admin.specialisation.create') }}">Inserisci una nuova Specializzazione</a>
             </div>
         </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Specialisation</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Specializzazione</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Azioni</th>
                 </tr>
             </thead>
             @foreach ($specialisations as $specialisation)
@@ -29,7 +29,7 @@
 
                         <td>
                             <a href="{{ route('admin.specialisation.show', $specialisation->id) }}" class="see-profile">-->
-                                See Specialisation <-- </a>
+                                Vedi Specializzazione <-- </a>
                         </td>
 
                     </tr>
