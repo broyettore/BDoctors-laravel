@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Review;
 use App\Models\Sponsorship;
+use App\Models\Vote;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -60,6 +62,22 @@ class DoctorController extends Controller
             'success' => true,
             'results' => $doctors
         ]);
+    }
+
+    public function newReview(Request $request) {
+        $newReview = new Review();
+
+        $newReview->doctor_id = $request['review']['doctor_id'];
+        $newReview->first_name = $request['review']['first_name'];
+        $newReview->last_name = $request['review']['last_name'];
+        $newReview->email = $request['review']['email'];
+        $newReview->description = $request['review']['description'];
+        
+        $newReview->save();
+        $doctor = Doctor::find($request['review']['doctor_id']);
+        $vote = Vote::where('id', $request['review']['vote'])->get();
+
+        $doctor->votes()->attach($vote, ['rating' => $request['review']['vote']]);
     }
 }
 
