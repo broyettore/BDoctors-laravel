@@ -16,19 +16,19 @@
             @method('PUT')
 
             <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
+                <label for="address" class="form-label">Indirizzo</label>
                 <input type="text" class="form-control" id="address" name="address"
                     value="{{ old('address', $doctor->address) }}">
             </div>
 
             <div class="mb-3">
-                <label for="phone_number" class="form-label">Phone Number Number</label>
+                <label for="phone_number" class="form-label">Telefono</label>
                 <input type="text" class="form-control" id="phone_number" name="phone_number"
                     value="{{ old('phone_number', $doctor->phone_number) }}">
             </div>
 
             <div class="mb-3">
-                <label for="services" class="form-label">Services</label>
+                <label for="services" class="form-label">Prestazioni</label>
                 <input type="text" class="form-control" id="services" name="services"
                     value="{{ old('services', $doctor->services) }}">
             </div>
@@ -41,39 +41,37 @@
                         <input type="text" class="d-none delete-cv-input" name="remove-cv">
                         <input type="file" class="form-control d-none new-cv-input" id="cv" name="cv"
                             value="{{ old('cv', $doctor->cv) }}">
-                        <label for="cv" class="btn btn-warning select-cv-label">Select new CV</label>
+                        <label for="cv" class="btn btn-warning select-cv-label">Carica Nuovo CV</label>
                     </div>
                     @if ($doctor->cv)
                         <div class="ms-3">
-                            <button type="button" id="delete-input" class="btn btn-danger delete-cv-btn">Delete current CV</button>
+                            <button type="button" id="delete-input" class="btn btn-danger delete-cv-btn">Elimina CV</button>
                         </div>
-                        <label for="" class="text-success ms-2 delete-cv-success d-none">CV successfully
-                            removed</label>
+                        <label for="" class="text-success ms-2 delete-cv-success d-none">CV eliminato con successo</label>
                     @endif
                 </div>
                 @if ($doctor->cv != null)
                    <a target="_blank" id="file-cv-link" class="btn btn-primary mt-1" href="{{ asset('storage/' . $doctor->cv) }}">
-                    Open your CV
+                    Apri CV
                 </a> 
                 @endif
                 
             </div>
 
             <div class="mb-3">
-                <label for="photo" class="form-label">Photo</label>
+                <label for="photo" class="form-label">Foto</label>
 
                 <div class="d-flex">
                     <div>
                         <input type="text" class="d-none delete-photo-input" name="remove-photo">
                         <input type="file" class="form-control d-none new-photo-input" id="photo" name="photo">
-                        <label for="photo" class="btn btn-warning select-photo-label">Select new photo</label>
+                        <label for="photo" class="btn btn-warning select-photo-label">Carica Nuova Foto</label>
                     </div>
                     @if ($doctor->photo)
                         <div class="ms-3">
-                            <button type="button" class="btn btn-danger delete-photo-btn">Delete current Photo</button>
+                            <button type="button" class="btn btn-danger delete-photo-btn">Elimina</button>
                         </div>
-                        <label for="" class="text-success ms-2 delete-photo-success d-none">Photo successfully
-                            removed</label>
+                        <label for="" class="text-success ms-2 delete-photo-success d-none">Foto Rimossa con Successso</label>
                     @endif
                 </div>
 
@@ -105,7 +103,7 @@
             @endif
 
             <div class="mb-3">
-                <input type="submit" value="Save" class="btn ms-btn-primary">
+                <input type="submit" value="Salva" class="btn ms-btn-primary">
             </div>
         </form>
 

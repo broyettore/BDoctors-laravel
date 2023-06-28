@@ -81,7 +81,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end ms-drop" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.profile.edit') }}">{{ __('Edit Profile') }}</a>
+                                        href="{{ route('admin.profile.edit') }}">{{ __('Modifica Profilo') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
