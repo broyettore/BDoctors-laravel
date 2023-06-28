@@ -22,10 +22,26 @@ class DoctorController extends Controller
     public function searchDoctorById($id) {
         $doctor = Doctor::where('id', $id)->with("specialisations", "user", "reviews", "votes")->get();
 
-        return response()->json([
-            'success' => true,
-            'results' => $doctor
-        ]);
+        try {
+            if($doctor) {
+
+                return response()->json([
+                    "success" => true,
+                    "result" => $doctor
+                ]);
+            } else {
+                return response()->json([
+                    "success" => false,
+                    "result" => null
+                ], 404);
+            }
+        } catch (\Throwable $th) {
+
+            return response()->json([
+                "success" => false,
+                "result" => null
+            ], 500);
+        }
     }
 
     public function searchDoctor($searchQuery) {
