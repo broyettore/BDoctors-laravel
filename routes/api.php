@@ -33,4 +33,4 @@ Route::get('specialisations', [SpecialisationController::class, 'index']);
 Route::get('doctors/{searchQuery}', [DoctorController::class, 'searchDoctor']);
 
 //Fetch all sponsored doctors
-Route::get('doctor/sponsored', [DoctorController::class, 'sponsoredDoctors']);
+Route::get('sponsored', [DoctorController::class, 'sponsoredDoctors']);
