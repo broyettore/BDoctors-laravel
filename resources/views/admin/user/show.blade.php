@@ -103,13 +103,14 @@
                     @foreach ($user->doctor->sponsorships as $sponsorship)
                         <li>
                             <span>Type: {{ $sponsorship->name }} - </span>
-                            <span>End date: {{ $sponsorship->pivot->end_date }} - </span>
                             <span>Price: {{ $sponsorship->price }}€ </span>
+                            <span>End: date {{ date('d-m-Y', strtotime($sponsorship->pivot->end_date)) }}</span>
                         </li>
                     @endforeach
                 </ol>
                 <span class="me-3">Total price: {{ $user->doctor->sponsorships->sum('price') }}€</span>
-                <span>Sponsorship end: {{ $user->doctor->sponsorships->last()->pivot->end_date }}</span>
+                <span>Sponsorship end: {{ date('d-m-Y', strtotime($user->doctor->sponsorships->last()->pivot->end_date)) }}</span>
+                {{-- date_format(strtotime($user->doctor->sponsorships->last()->pivot->end_date),"Y/m/d") --}}
             </section>
         @endif
 
