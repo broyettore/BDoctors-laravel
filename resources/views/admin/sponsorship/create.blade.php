@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container py-3">
-        <h1 class="mb-3">Scegli una Sponsorship:</h1>
+        <h1 class="mb-3">Scegli una Sponsorizzazione:</h1>
 
         <div>
             @include('partials.errors')
