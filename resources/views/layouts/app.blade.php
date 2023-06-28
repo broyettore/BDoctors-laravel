@@ -71,7 +71,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Acquista sponsorship</a>
+                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Acquista Sponsorizzazione</a>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -81,7 +81,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end ms-drop" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.profile.edit') }}">{{ __('Edit Profile') }}</a>
+                                        href="{{ route('admin.profile.edit') }}">{{ __('Modifica Profilo') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

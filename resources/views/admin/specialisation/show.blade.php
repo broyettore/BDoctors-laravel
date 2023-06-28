@@ -4,8 +4,8 @@
     <div class="container">
         <h1 class="mb-3 fs-1">{{ $specialisation->name }}</h1>
         <ul class="mb-3">
-            <li>Name: {{ $specialisation->name }}</li>
-            <li>Description: {{ $specialisation->description }}</li>
+            <li>Nome: {{ $specialisation->name }}</li>
+            <li>Descrizione: {{ $specialisation->description }}</li>
         </ul>
 
         <a href="{{ route('admin.specialisation.edit', $specialisation->id) }}" class="btn ms-btn-primary me-1">Modifica Specializzazione</a>

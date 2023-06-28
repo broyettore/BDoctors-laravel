@@ -37,10 +37,9 @@
                     @if ($user->doctor)
                         {{-- Nav Buttons --}}
                         <a href="{{ route('admin.doctor.edit', $user->doctor->id) }}" class="btn ms-btn-primary me-2">Modifica
-                            Medico
-                            Profilo
+                            Profilo Medico
                         </a>
-                        @if ($user->doctor->cv) 
+                        @if ($user->doctor->cv)
                             <a href="{{ asset('storage/' . $user->doctor->cv) }}" download="cv.pdf"
                                 class="btn ms-btn-primary me-2">Scarica Cv</a>
                         @endif
@@ -75,8 +74,7 @@
                         @endif
                         {{-- /offcanvas per la visualizazzione dei messaggi ricevuti --}}
                     @else
-                        <a href="{{ route('admin.doctor.create') }}"
-                            class="btn ms-btn-primary me-2">Crea Profilo Medico
+                        <a href="{{ route('admin.doctor.create') }}" class="btn ms-btn-primary me-2">Crea Profilo Medico
                         </a>
                     @endif
                 </div>
@@ -108,7 +106,8 @@
                     @endforeach
                 </ol>
                 <span class="me-3">Prezzo Totale: {{ $user->doctor->sponsorships->sum('price') }}€</span>
-                <span>Fine Sponsorship: {{ date('d-m-Y', strtotime($user->doctor->sponsorships->last()->pivot->end_date)) }}</span>
+                <span>Fine Sponsorship:
+                    {{ date('d-m-Y', strtotime($user->doctor->sponsorships->last()->pivot->end_date)) }}</span>
                 {{-- date_format(strtotime($user->doctor->sponsorships->last()->pivot->end_date),"Y/m/d") --}}
             </section>
         @endif
