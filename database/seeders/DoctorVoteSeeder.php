@@ -16,7 +16,7 @@ class DoctorVoteSeeder extends Seeder
         $doctors = Doctor::all();
         $votes = Vote::pluck('id')->toArray();
 
-        for ($i = 0; $i < 200; $i++) {
+        for ($i = 0; $i < 4000; $i++) {
             $doctor = $doctors->random();
             $voteId = array_rand($votes);
             $rating = rand(2, 5);
