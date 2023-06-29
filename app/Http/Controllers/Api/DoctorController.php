@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewMessage;
 use App\Models\Doctor;
 use App\Models\Review;
 use App\Models\Sponsorship;
 use App\Models\Vote;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DoctorController extends Controller
 {
@@ -21,11 +23,12 @@ class DoctorController extends Controller
         ]);
     }
 
-    public function searchDoctorById($id) {
+    public function searchDoctorById($id)
+    {
         $doctor = Doctor::where('id', $id)->with("specialisations", "user", "reviews", "votes")->get();
 
         try {
-            if($doctor) {
+            if ($doctor) {
 
                 return response()->json([
                     "success" => true,
@@ -46,7 +49,8 @@ class DoctorController extends Controller
         }
     }
 
-    public function searchDoctor($searchQuery) {
+    public function searchDoctor($searchQuery)
+    {
 
         $doctors = Doctor::whereRelation('specialisations', 'name', '=', $searchQuery)->with("specialisations", "user", "reviews", "votes", "sponsorships")->get();
         return response()->json([
@@ -55,7 +59,8 @@ class DoctorController extends Controller
         ]);
     }
 
-    public function sponsoredDoctors() {
+    public function sponsoredDoctors()
+    {
 
         $doctors = Doctor::whereRelation('sponsorships', 'end_date', '>=', Carbon::now())->with("specialisations", "user", "reviews", "votes")->get();
         return response()->json([
@@ -64,7 +69,8 @@ class DoctorController extends Controller
         ]);
     }
 
-    public function newReview(Request $request) {
+    public function newReview(Request $request)
+    {
         $newReview = new Review();
 
         $newReview->doctor_id = $request['review']['doctor_id'];
@@ -72,15 +78,26 @@ class DoctorController extends Controller
         $newReview->last_name = $request['review']['last_name'];
         $newReview->email = $request['review']['email'];
         $newReview->description = $request['review']['description'];
-        
+
         $newReview->save();
         $doctor = Doctor::find($request['review']['doctor_id']);
         $vote = Vote::where('id', $request['review']['vote'])->get();
 
         $doctor->votes()->attach($vote, ['rating' => $request['review']['vote']]);
     }
+
+    public function contactDoctor(Request $request)
+    {
+        // dd($request);
+        $new_message = [
+            "user" => $request['user'],
+            "email" => $request['email'],
+            "message" => $request['message'],
+        ];
+
+        // dd($new_message);
+         Mail::to('projects-contact@me.com')->send(new NewMessage($new_message));
+
+        return $new_message;
+    }
 }
-
-
-
-
