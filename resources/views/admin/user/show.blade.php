@@ -119,7 +119,7 @@
                     @if (isset($user->doctor->reviews))
                         <section>
                             <h3>Recensioni ({{ count($user->doctor->reviews) }})</h3>
-                            <ul class="my-1">
+                            <ul class="my-1 ms-review-ctn">
                                 <hr>
                                 @foreach ($user->doctor->reviews->sortByDesc('created_at') as $review)
                                     <li>{{ $review->first_name . ' ' . $review->last_name }} ( {{ $review->email }})</li>
@@ -137,7 +137,7 @@
                     @if (isset($user->doctor->votes))
                         <section>
                             <h3>Voto ({{ count($user->doctor->votes) }})</h3>
-                            <ul class="my-1">
+                            <ul class="my-1 ms-vote-ctn">
                                 <hr>
                                 @foreach ($user->doctor->votes as $vote)
                                     <li>

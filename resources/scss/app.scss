@@ -46,6 +46,11 @@ h6 {
     border: 1px solid #3b66a7;
 }
 
+.ms-review-ctn, .ms-vote-ctn {
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
 /********** Button Styling **************/
 
 .ms-btn-primary {
