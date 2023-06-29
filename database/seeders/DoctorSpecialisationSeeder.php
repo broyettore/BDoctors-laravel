@@ -16,7 +16,7 @@ class DoctorSpecialisationSeeder extends Seeder
     {
         $y = 1;
 
-        for ($i=1; $i <= 40; $i++) { 
+        for ($i=1; $i <= 500; $i++) { 
            $doctor = Doctor::find($i);
            $doctor->specialisations()->sync([$y]);
 
