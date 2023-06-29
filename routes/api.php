@@ -38,4 +38,5 @@ Route::get('sponsored', [DoctorController::class, 'sponsoredDoctors']);
 // Create a new review
 Route::post('review/create', [DoctorController::class, 'newReview']);
 
-
+// Send mail to doctor
+Route::post('doctor/contact', [DoctorController::class, 'contactDoctor']);
