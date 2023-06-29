@@ -38,9 +38,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="http://localhost:5173/">Vai a BDoctors</a>
                         </li>
                         @if (Auth::check())
