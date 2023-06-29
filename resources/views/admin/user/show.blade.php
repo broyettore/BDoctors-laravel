@@ -121,7 +121,7 @@
                             <h3>Recensioni ({{ count($user->doctor->reviews) }})</h3>
                             <ul class="my-1">
                                 <hr>
-                                @foreach ($user->doctor->reviews as $review)
+                                @foreach ($user->doctor->reviews->sortByDesc('created_at') as $review)
                                     <li>{{ $review->first_name . ' ' . $review->last_name }} ( {{ $review->email }})</li>
                                     <li>{{ $review->description }}</li>
                                     <hr>
