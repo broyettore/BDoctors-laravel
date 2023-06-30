@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Mail\NewMessage;
 use App\Models\Doctor;
+use App\Models\Message;
 use App\Models\Review;
 use App\Models\Sponsorship;
 use App\Models\Vote;
@@ -88,14 +89,14 @@ class DoctorController extends Controller
 
     public function contactDoctor(Request $request)
     {
-        // dd($request);
-        $new_message = [
-            "user" => $request['user'],
-            "email" => $request['email'],
-            "message" => $request['message'],
-        ];
+        $new_message = new Message();
+        $new_message->user = $request['user'];
+        $new_message->email = $request['email'];
+        $new_message->message = $request['message'];
+        $new_message->doctor_id = $request['doctor_id'];
 
-        // dd($new_message);
+        $new_message->save();
+
          Mail::to('projects-contact@me.com')->send(new NewMessage($new_message));
 
         return $new_message;
