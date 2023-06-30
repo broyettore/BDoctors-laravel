@@ -50,7 +50,7 @@
                         </button>
                         {{-- /Nav Buttons --}}
                         {{-- offcanvas per la visualizazzione dei messaggi ricevuti --}}
-                        @if (isset($user->doctor->messagges))
+                        @if (isset($user->doctor->messages))
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="staticBackdrop"
                                 aria-labelledby="staticBackdropLabel">
                                 <div class="offcanvas-header">
@@ -59,13 +59,12 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body">
-                                    @foreach ($user->doctor->messagges as $messagge)
+                                    @foreach ($user->doctor->messages as $message)
                                         <div class="card mb-2">
                                             <div class="card-body">
-                                                <h5 class="card-title">
-                                                    {{ $messagge->first_name }} {{ $messagge->last_name }}</h5>
-                                                <p class="mb-1">{{ $messagge->body }}</p>
-                                                <span>{{ $messagge->email }}</span>
+                                                <h5 class="card-title">{{ $message->user }}</h5>
+                                                <span>{{ $message->email }}</span>
+                                                <p class="mb-1">{{ $message->message }}</p>
                                             </div>
                                         </div>
                                     @endforeach
