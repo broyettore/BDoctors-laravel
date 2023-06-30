@@ -94,7 +94,7 @@
 
         @if (count($user->doctor->sponsorships) > 0)
             <section class="mb-3">
-                <h3>Sponsorships:</h3>
+                <h3>Sponsorizzazioni:</h3>
                 <ol>
                     @foreach ($user->doctor->sponsorships as $sponsorship)
                         <li>
@@ -105,7 +105,7 @@
                     @endforeach
                 </ol>
                 <span class="me-3">Prezzo Totale: {{ $user->doctor->sponsorships->sum('price') }}€</span>
-                <span>Fine Sponsorship:
+                <span>Fine Sponsorizzazione:
                     {{ date('d-m-Y', strtotime($user->doctor->sponsorships->last()->pivot->end_date)) }}</span>
                 {{-- date_format(strtotime($user->doctor->sponsorships->last()->pivot->end_date),"Y/m/d") --}}
             </section>
