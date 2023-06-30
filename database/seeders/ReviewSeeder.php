@@ -292,7 +292,7 @@ class ReviewSeeder extends Seeder
             $newReview->doctor_id = rand(1, 500);
             $newReview->first_name = $faker->firstName('male'|'female');
             $newReview->last_name = $faker->lastName();
-            $newReview->email = $newReview->first_name . $newReview->last_name . $i . "@gmail.com";
+            $newReview->email = strtolower($newReview->first_name) . strtolower($newReview->last_name) . $i . "@gmail.com";
             $newReview->description = $reviews[rand(0, 69)]["description"];
 
             $newReview->save();

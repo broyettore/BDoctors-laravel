@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             $newUser = new User();
             $newUser->first_name = $faker->firstName('male'|'female');
             $newUser->last_name = $faker->lastName();
-            $newUser->email = $newUser->first_name . $newUser->last_name . $i . "@gmail.com";
+            $newUser->email = strtolower($newUser->first_name) . strtolower($newUser->last_name) . $i . "@gmail.com";
             $newUser->password = "12345678";
 
             $newUser->save();
