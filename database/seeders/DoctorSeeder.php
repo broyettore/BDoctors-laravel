@@ -105,7 +105,7 @@ class DoctorSeeder extends Seeder
 
             $newDoctor = new Doctor();
             $newDoctor->user_id = $i;
-            $newDoctor->cv = "uploads/v4L2f1IzeF5bGrRQAPLRCFNxn5g83RLzKuz00YSj.pdf";
+            $newDoctor->cv = "";
             $newDoctor->photo = $images[$index]['image'];
             $newDoctor->address = $faker->address();
             $newDoctor->services = "Visita di controllo, esami.";

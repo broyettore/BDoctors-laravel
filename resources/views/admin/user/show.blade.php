@@ -1,3 +1,15 @@
+<?php
+
+foreach($user->doctor->votes as $vote) {
+
+    $array[] = $vote->value;
+    $voteSum = array_sum($array);
+}
+$totalVotes = count($user->doctor->votes);
+$avg = $voteSum / $totalVotes;
+
+?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -138,16 +150,10 @@
                             <h3>Voto ({{ count($user->doctor->votes) }})</h3>
                             <ul class="my-1 ms-vote-ctn">
                                 <hr>
-                                @foreach ($user->doctor->votes as $vote)
                                     <li>
-                                        <div class="d-flex">
-                                            @for ($i = 0; $i < $vote->value; $i++)
-                                                <i class="fa-solid fa-star valutation-star"></i>
-                                            @endfor
-                                        </div>
+                                        Media: {{ floor($avg) }} / 5
                                     </li>
                                     <hr>
-                                @endforeach
                             </ul>
                         </section>
                     @endif

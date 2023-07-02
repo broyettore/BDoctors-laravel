@@ -68,7 +68,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Acquista Sponsorizzazione</a>
+                            <a href="{{ route('admin.sponsorship.index') }}" class="btn  ms-btn-secondary nav-link">Acquista Sponsor</a>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
