@@ -1,12 +1,15 @@
 <?php
 
-foreach($user->doctor->votes as $vote) {
+if(count($user->doctor->votes) > 0) {
 
-    $array[] = $vote->value;
-    $voteSum = array_sum($array);
+    foreach($user->doctor->votes as $vote) {
+    
+        $array[] = $vote->value;
+        $voteSum = array_sum($array);
+    }
+    $totalVotes = count($user->doctor->votes);
+    $avg = $voteSum / $totalVotes;
 }
-$totalVotes = count($user->doctor->votes);
-$avg = $voteSum / $totalVotes;
 
 ?>
 
@@ -145,7 +148,7 @@ $avg = $voteSum / $totalVotes;
 
                 {{-- Rating Section  --}}
                 <div class="col-12 col-md-4">
-                    @if (isset($user->doctor->votes))
+                    @if (count($user->doctor->votes) > 0)
                         <section>
                             <h3>Voto ({{ count($user->doctor->votes) }})</h3>
                             <ul class="my-1 ms-vote-ctn">
